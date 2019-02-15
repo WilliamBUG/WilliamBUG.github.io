@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="实际中的软件应用推荐：因为现在的数据量越来越大，可以使用Spark进行并行运算处理是未来的趋势，主要是如何将计算过程拆分成MapReduce的过程并使用Hadoop实现。 Collaborative Filtering：在系统度过了只能使用内容进行推荐的阶段之后，就有了用户的行为，那么物品的特征和用户的反馈就形成了一个关系矩阵。协同过滤就是将用户空缺的对物品的态度通过物以类聚的办法借鉴类似人的态度">
+  <meta name="description" content="Item-based：在浏览网店的时候一般会出现：  买了这个的还买了，看了这个的还看了，喜欢这个的还喜欢了。  这种推荐可以通过物品相关度或者使用item-based的方法实现推荐，item-based称为基于物品的协同过滤，最早出现在文章：Item-based cooperative filter中。 user-based的缺点： 用户数量大（所以计算之后还要排序，针对用户还要储存TopK，耗">
 <meta name="keywords" content="推荐,内容推荐,collaborative filtering">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统：协同过滤第一部分（blog总结）">
-<meta property="og:url" content="http://yoursite.com/2019/02/15/推荐系统：协同过滤部分/index.html">
+<meta property="og:title" content="推荐系统：协同过滤第二部分（blog总结）">
+<meta property="og:url" content="http://yoursite.com/2019/02/15/推荐系统：协同过滤第二部分/index.html">
 <meta property="og:site_name" content="龙渊">
-<meta property="og:description" content="实际中的软件应用推荐：因为现在的数据量越来越大，可以使用Spark进行并行运算处理是未来的趋势，主要是如何将计算过程拆分成MapReduce的过程并使用Hadoop实现。 Collaborative Filtering：在系统度过了只能使用内容进行推荐的阶段之后，就有了用户的行为，那么物品的特征和用户的反馈就形成了一个关系矩阵。协同过滤就是将用户空缺的对物品的态度通过物以类聚的办法借鉴类似人的态度">
+<meta property="og:description" content="Item-based：在浏览网店的时候一般会出现：  买了这个的还买了，看了这个的还看了，喜欢这个的还喜欢了。  这种推荐可以通过物品相关度或者使用item-based的方法实现推荐，item-based称为基于物品的协同过滤，最早出现在文章：Item-based cooperative filter中。 user-based的缺点： 用户数量大（所以计算之后还要排序，针对用户还要储存TopK，耗">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-15T09:48:32.312Z">
+<meta property="og:updated_time" content="2019-02-15T09:48:25.746Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统：协同过滤第一部分（blog总结）">
-<meta name="twitter:description" content="实际中的软件应用推荐：因为现在的数据量越来越大，可以使用Spark进行并行运算处理是未来的趋势，主要是如何将计算过程拆分成MapReduce的过程并使用Hadoop实现。 Collaborative Filtering：在系统度过了只能使用内容进行推荐的阶段之后，就有了用户的行为，那么物品的特征和用户的反馈就形成了一个关系矩阵。协同过滤就是将用户空缺的对物品的态度通过物以类聚的办法借鉴类似人的态度">
+<meta name="twitter:title" content="推荐系统：协同过滤第二部分（blog总结）">
+<meta name="twitter:description" content="Item-based：在浏览网店的时候一般会出现：  买了这个的还买了，看了这个的还看了，喜欢这个的还喜欢了。  这种推荐可以通过物品相关度或者使用item-based的方法实现推荐，item-based称为基于物品的协同过滤，最早出现在文章：Item-based cooperative filter中。 user-based的缺点： 用户数量大（所以计算之后还要排序，针对用户还要储存TopK，耗">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/15/推荐系统：协同过滤部分/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/15/推荐系统：协同过滤第二部分/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>推荐系统：协同过滤第一部分（blog总结） | 龙渊</title>
+  <title>推荐系统：协同过滤第二部分（blog总结） | 龙渊</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/15/推荐系统：协同过滤部分/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/15/推荐系统：协同过滤第二部分/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Tan">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">推荐系统：协同过滤第一部分（blog总结）
+          <h1 class="post-title" itemprop="name headline">推荐系统：协同过滤第二部分（blog总结）
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-02-15 16:51:00 / 修改时间：17:48:32" itemprop="dateCreated datePublished" datetime="2019-02-15T16:51:00+08:00">2019-02-15</time>
+              <time title="创建时间：2019-02-15 17:32:44 / 修改时间：17:48:25" itemprop="dateCreated datePublished" datetime="2019-02-15T17:32:44+08:00">2019-02-15</time>
             
 
             
@@ -422,29 +422,33 @@
       
 
       
-        <h2 id="实际中的软件应用推荐："><a href="#实际中的软件应用推荐：" class="headerlink" title="实际中的软件应用推荐："></a>实际中的软件应用推荐：</h2><p>因为现在的数据量越来越大，可以使用Spark进行并行运算处理是未来的趋势，主要是如何将计算过程拆分成MapReduce的过程并使用Hadoop实现。</p>
-<h2 id="Collaborative-Filtering："><a href="#Collaborative-Filtering：" class="headerlink" title="Collaborative Filtering："></a>Collaborative Filtering：</h2><p>在系统度过了只能使用内容进行推荐的阶段之后，就有了用户的行为，那么物品的特征和用户的反馈就形成了一个关系矩阵。协同过滤就是将用户空缺的对物品的态度通过物以类聚的办法借鉴类似人的态度填充起来。这个算法通常包括：</p>
+        <h2 id="Item-based："><a href="#Item-based：" class="headerlink" title="Item-based："></a>Item-based：</h2><p>在浏览网店的时候一般会出现：</p>
+<blockquote>
+<p>买了这个的还买了，看了这个的还看了，喜欢这个的还喜欢了。</p>
+</blockquote>
+<p>这种推荐可以通过物品相关度或者使用item-based的方法实现推荐，item-based称为基于物品的协同过滤，最早出现在文章：Item-based cooperative filter中。</p>
+<h3 id="user-based的缺点："><a href="#user-based的缺点：" class="headerlink" title="user-based的缺点："></a>user-based的缺点：</h3><ol>
+<li>用户数量大（所以计算之后还要排序，针对用户还要储存TopK，耗费资源）。</li>
+<li>用户口味变化在user-based算法中体现不出来（只是划分了兴趣小组，在每变得很不同之前系统基本上探测不到）。</li>
+<li>数据sparse，用户与用户间相似的行为其实比较少，很难体现出兴趣所在（尤其是在物品较多的情况下）。</li>
+</ol>
+<h3 id="item-based如何解决以上缺陷："><a href="#item-based如何解决以上缺陷：" class="headerlink" title="item-based如何解决以上缺陷："></a>item-based如何解决以上缺陷：</h3><p>Item-based的方法，由于本身数量可能少于用户数量，再加上属性变化不快，且面对用户的数量巨大，可以应对以上缺陷。<br>方法核心思想具体如下：</p>
 <ol>
-<li>基于记忆的协同过滤（Memory-Based）</li>
-<li>基于模型的协同过滤（Model-Based）</li>
+<li>构建物品用户关系矩阵</li>
+<li>计算物品用户关系矩阵的行相似度，得到物品物品相似度矩阵</li>
+<li>根据计算结构进行推荐。</li>
 </ol>
-<p>Memory-based主要包括user-based与item-based两种方法。user-based致力于找到和你臭味相投的人然后把那个人干的事推荐给你。item-based在与找到相似的物品，然后根据个人之前的动作将相似的物品推荐给你。其实在这些方法中最主要的工作是如何量化两者的相似性！</p>
-<h3 id="user-based的简易步骤："><a href="#user-based的简易步骤：" class="headerlink" title="user-based的简易步骤："></a>user-based的简易步骤：</h3><ol>
-<li>调取关系矩阵，观察用户的sparse vector</li>
-<li>计算用户之间的相似程度</li>
-<li>根据加权平均的分数排序（之后按集合中的用户行为对指定用户进行推荐）</li>
-</ol>
-<h3 id="user-based在实际操作中需要注意的事情："><a href="#user-based在实际操作中需要注意的事情：" class="headerlink" title="user-based在实际操作中需要注意的事情："></a>user-based在实际操作中需要注意的事情：</h3><ol>
-<li>构造矩阵：矩阵通常是sparse的，储存起来使用CSR或者COO的方式，然后通过python numpy读取。由于是很多计算框架的标准输入，所以要将以上数据转化为CSR或者COO。</li>
-<li>相似度计算：向量长度会很长，所以必须降低计算量，通过采样维度进行计算：DIMSUM。将循环运算尽量用向量计算代替。如果用户量十分大的时候，可以将相似度计算拆成MapReduce的计算，将原始矩阵Map成用户对，再reduce计算。如果相似度的计算任务不超百万，可以运用现成的软件如何KGraph或者GraphCHI。</li>
-<li>推荐计算：计算量大的话可以采取分布式计算，用MapReduce的办法。</li>
-<li>惩罚对热门商品的推荐，增加喜欢程度的衰减（计数时使用1/log（1+N））。</li>
-</ol>
-<h2 id="user-based算法的产出："><a href="#user-based算法的产出：" class="headerlink" title="user-based算法的产出："></a>user-based算法的产出：</h2><p>基于用户的协同过滤会输出两个东西：</p>
+<p>物品相似度可以使用cosine similarity进行计算，因为vector sparse的缘故，计算复杂度不是很高。同时可以针对性地进行优化：</p>
 <ol>
-<li>相似用户列表</li>
-<li>基于用户的推荐结果。<br>这种推荐可以向用户推荐用户，根据用户的聚类组建兴趣群体而非某些大V的影响。</li>
+<li>物品中心化：物品评分 - 物品的所用用户平均分（压制脑残粉的集体高分）</li>
+<li>用户中心化：单一用户的所有评分 - 这个用户对于所有的物品评分 （针对所有均给好评和差评的用户，他们的评价不能客观体现物品好坏）</li>
 </ol>
+<h3 id="计算推荐结构："><a href="#计算推荐结构：" class="headerlink" title="计算推荐结构："></a>计算推荐结构：</h3><p>得到物品物品关系矩阵后，进行推荐，一般有两种应用场景：</p>
+<ol>
+<li>TopK推荐： 预测用户对于物品i的评分，这个评分等于用户所有物体的评分与物品相似度的加权平均，之后按照分数高低进行TopK排序即可。</li>
+<li>直接推荐，是买完一个物品之后，直接根据这个物品的相似度进行计算。</li>
+</ol>
+<h3 id="Slope-One："><a href="#Slope-One：" class="headerlink" title="Slope One："></a>Slope One：</h3><p>一种简化算法算法，可以做成online的。这个算法认为，根据用户物品关系构建的矩阵所计算出的物品与物品的similarity可能不能正确反应出物品与物品的相似程度。Slope one对这个问题进行了改进，通过计算物品与物品之间的距离，之后对用户空缺的分数进行预测（补充好相差的分数后对分数进行加权平均，按照共同用户数加权）。</p>
 
       
     </div>
@@ -485,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/24/推荐系统：内容推荐部分知识点/" rel="next" title="推荐系统：内容推荐部分（bliog总结）">
-                <i class="fa fa-chevron-left"></i> 推荐系统：内容推荐部分（bliog总结）
+              <a href="/2019/02/15/推荐系统：协同过滤部分/" rel="next" title="推荐系统：协同过滤第一部分（blog总结）">
+                <i class="fa fa-chevron-left"></i> 推荐系统：协同过滤第一部分（blog总结）
               </a>
             
           </div>
@@ -494,10 +498,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/15/推荐系统：协同过滤第二部分/" rel="prev" title="推荐系统：协同过滤第二部分（blog总结）">
-                推荐系统：协同过滤第二部分（blog总结） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -641,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实际中的软件应用推荐："><span class="nav-number">1.</span> <span class="nav-text">实际中的软件应用推荐：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collaborative-Filtering："><span class="nav-number">2.</span> <span class="nav-text">Collaborative Filtering：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#user-based的简易步骤："><span class="nav-number">2.1.</span> <span class="nav-text">user-based的简易步骤：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#user-based在实际操作中需要注意的事情："><span class="nav-number">2.2.</span> <span class="nav-text">user-based在实际操作中需要注意的事情：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#user-based算法的产出："><span class="nav-number">3.</span> <span class="nav-text">user-based算法的产出：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-based："><span class="nav-number">1.</span> <span class="nav-text">Item-based：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#user-based的缺点："><span class="nav-number">1.1.</span> <span class="nav-text">user-based的缺点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#item-based如何解决以上缺陷："><span class="nav-number">1.2.</span> <span class="nav-text">item-based如何解决以上缺陷：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算推荐结构："><span class="nav-number">1.3.</span> <span class="nav-text">计算推荐结构：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slope-One："><span class="nav-number">1.4.</span> <span class="nav-text">Slope One：</span></a></li></ol></li></ol></div>
             
 
           </div>
