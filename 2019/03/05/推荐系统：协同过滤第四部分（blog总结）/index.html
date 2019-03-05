@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="用户画像User profile 是推荐系统常用概念，所有推荐系统的目的都是在user和item间建立连接。它通常是用户向量化，这是推荐过程中的副产品，不是最终目的。推荐系统需要降低计算量，所以需要召回和排序两个阶段。用户向量化需要考虑维度和量化两方面，标签化只是向量化的一种，画像并不需要被人理解。 从文本中构建用户画像这项工作的主要目的是从大量文本中挖掘User Profile，这个过程大致上分">
-<meta name="keywords" content="推荐,内容推荐,content-based">
+  <meta name="description" content="使用交替最小二乘法由于在矩阵分解中两个矩阵都是未知的，知道了一个就可以通过线性代数求出来另一个，所以需要先确定一个矩阵。这是个先有鸡还是先有蛋的问题，ALS通过先initialize一个矩阵，之后求解，再将求解的代入回去，之后不断迭代，直到误差接受为止。 Facebook直接运用了ASL进行矩阵分解计算，取得了不错的效果。 使用ASL的优势： 假设一个已知，求解另一个的计算是可以进行并行处理的。">
+<meta name="keywords" content="推荐,collaborative filtering">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统：内容推荐部分（bliog总结）">
-<meta property="og:url" content="http://yoursite.com/2019/01/24/推荐系统：内容推荐部分知识点/index.html">
+<meta property="og:title" content="推荐系统：协同过滤第四部分（blog总结）">
+<meta property="og:url" content="http://yoursite.com/2019/03/05/推荐系统：协同过滤第四部分（blog总结）/index.html">
 <meta property="og:site_name" content="龙渊">
-<meta property="og:description" content="用户画像User profile 是推荐系统常用概念，所有推荐系统的目的都是在user和item间建立连接。它通常是用户向量化，这是推荐过程中的副产品，不是最终目的。推荐系统需要降低计算量，所以需要召回和排序两个阶段。用户向量化需要考虑维度和量化两方面，标签化只是向量化的一种，画像并不需要被人理解。 从文本中构建用户画像这项工作的主要目的是从大量文本中挖掘User Profile，这个过程大致上分">
+<meta property="og:description" content="使用交替最小二乘法由于在矩阵分解中两个矩阵都是未知的，知道了一个就可以通过线性代数求出来另一个，所以需要先确定一个矩阵。这是个先有鸡还是先有蛋的问题，ALS通过先initialize一个矩阵，之后求解，再将求解的代入回去，之后不断迭代，直到误差接受为止。 Facebook直接运用了ASL进行矩阵分解计算，取得了不错的效果。 使用ASL的优势： 假设一个已知，求解另一个的计算是可以进行并行处理的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-15T09:48:19.561Z">
+<meta property="og:updated_time" content="2019-03-05T11:26:34.330Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统：内容推荐部分（bliog总结）">
-<meta name="twitter:description" content="用户画像User profile 是推荐系统常用概念，所有推荐系统的目的都是在user和item间建立连接。它通常是用户向量化，这是推荐过程中的副产品，不是最终目的。推荐系统需要降低计算量，所以需要召回和排序两个阶段。用户向量化需要考虑维度和量化两方面，标签化只是向量化的一种，画像并不需要被人理解。 从文本中构建用户画像这项工作的主要目的是从大量文本中挖掘User Profile，这个过程大致上分">
+<meta name="twitter:title" content="推荐系统：协同过滤第四部分（blog总结）">
+<meta name="twitter:description" content="使用交替最小二乘法由于在矩阵分解中两个矩阵都是未知的，知道了一个就可以通过线性代数求出来另一个，所以需要先确定一个矩阵。这是个先有鸡还是先有蛋的问题，ALS通过先initialize一个矩阵，之后求解，再将求解的代入回去，之后不断迭代，直到误差接受为止。 Facebook直接运用了ASL进行矩阵分解计算，取得了不错的效果。 使用ASL的优势： 假设一个已知，求解另一个的计算是可以进行并行处理的。">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/24/推荐系统：内容推荐部分知识点/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/05/推荐系统：协同过滤第四部分（blog总结）/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>推荐系统：内容推荐部分（bliog总结） | 龙渊</title>
+  <title>推荐系统：协同过滤第四部分（blog总结） | 龙渊</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/24/推荐系统：内容推荐部分知识点/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/05/推荐系统：协同过滤第四部分（blog总结）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Tan">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">推荐系统：内容推荐部分（bliog总结）
+          <h1 class="post-title" itemprop="name headline">推荐系统：协同过滤第四部分（blog总结）
 
               
             
@@ -366,24 +366,12 @@
                 
               
 
-              <time title="创建时间：2019-01-24 22:28:31" itemprop="dateCreated datePublished" datetime="2019-01-24T22:28:31+08:00">2019-01-24</time>
+              <time title="创建时间：2019-03-05 16:45:41 / 修改时间：19:26:34" itemprop="dateCreated datePublished" datetime="2019-03-05T16:45:41+08:00">2019-03-05</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-15 17:48:19" itemprop="dateModified" datetime="2019-02-15T17:48:19+08:00">2019-02-15</time>
               
             
           </span>
@@ -434,49 +422,24 @@
       
 
       
-        <h2 id="用户画像"><a href="#用户画像" class="headerlink" title="用户画像"></a>用户画像</h2><p>User profile 是推荐系统常用概念，所有推荐系统的目的都是在user和item间建立连接。它通常是用户向量化，这是推荐过程中的副产品，不是最终目的。推荐系统需要降低计算量，所以需要召回和排序两个阶段。用户向量化需要考虑维度和量化两方面，标签化只是向量化的一种，画像并不需要被人理解。</p>
-<h2 id="从文本中构建用户画像"><a href="#从文本中构建用户画像" class="headerlink" title="从文本中构建用户画像"></a>从文本中构建用户画像</h2><p>这项工作的主要目的是从大量文本中挖掘User Profile，这个过程大致上分为两步：</p>
+        <h2 id="使用交替最小二乘法"><a href="#使用交替最小二乘法" class="headerlink" title="使用交替最小二乘法"></a>使用交替最小二乘法</h2><p>由于在矩阵分解中两个矩阵都是未知的，知道了一个就可以通过线性代数求出来另一个，所以需要先确定一个矩阵。这是个先有鸡还是先有蛋的问题，ALS通过先initialize一个矩阵，之后求解，再将求解的代入回去，之后不断迭代，直到误差接受为止。</p>
+<p>Facebook直接运用了ASL进行矩阵分解计算，取得了不错的效果。</p>
+<h3 id="使用ASL的优势："><a href="#使用ASL的优势：" class="headerlink" title="使用ASL的优势："></a>使用ASL的优势：</h3><ol>
+<li>假设一个已知，求解另一个的计算是可以进行并行处理的。</li>
+<li>在不sparse的矩阵中，ALS比SGD能更快的得到结果。（尤其涉及到implicit feedback的时候，矩阵不再像explicit feedback一样稀疏）</li>
+</ol>
+<h2 id="ASL针对Implicit-feedback的优化："><a href="#ASL针对Implicit-feedback的优化：" class="headerlink" title="ASL针对Implicit feedback的优化："></a>ASL针对Implicit feedback的优化：</h2><p>预测系统应该是设计成关注行为，因为评分一般都是用户行为之后，用户才会打分。所以关注行为更加有效。预测行为其实是一个classification，但是我们通常只有用户做了的事，没有用户没做的事，这其实是对应了one-class问题。在这类问题中，用户对一个物品的反复动作需要更大的权重来突显出来重要性，所以这里使用weighted-ASL，在两个latent factor相乘与目标的MSE前面乘以一个权重系数。</p>
+<p>在one-class问题中应该着重考虑负样本的采样问题，在这个场景中，对于缺失值，我们不应该设置成0，因为这就相当于我们手动代替了SVD对矩阵进行了填充，这个负样本也不一定代表了客户的真实不感兴趣，所以结果一定是bias的。正确做法是按照物品热门度采样，如果按照热门度采样，因为越热门，用户就越可能看到它，所以不选择就越能代表不感兴趣。同时，将推荐给用户但是用户不选择的样本设置成0也不是不可以，但是往往代表性还是不够。（也可以使用其他undersampling和oversampling的技术，但是intuition都没有热门商品采样强）。</p>
+<h2 id="推荐计算过程："><a href="#推荐计算过程：" class="headerlink" title="推荐计算过程："></a>推荐计算过程：</h2><p>通常只需将两个dense vector相乘就可以了，然后对于维度仍然很大的场景，Facebook提出如下解决方案。</p>
 <ol>
-<li>将所有非结构化的文本结构化，去粗取精，保留关键讯息。</li>
-<li>根据用户行为数据将物品的结构化给用户，与用户的结构化合并。</li>
+<li>利用专门设计的数据结构储存所有的物品隐性向量，然后输入用户向量得到最佳k个推荐。代表为Faiss，Kgraph。(Faiss适合动态增加物品向量，现可使用GPU加速，做到billion级别，Kgraph不适合攻台增加物品向量，做approximate nearest neighbor search)</li>
+<li>对物品进行clustering，之后对每个cluster的mean进行计算，再从推荐的cluster中随机选几个。这个在减少计算量的同时还能保证多样性。</li>
 </ol>
-<p>如何处理文本端的讯息呢：</p>
-<ol>
-<li>关键词提取：TextRank 和 TF-IDF。</li>
-<li>实体识别：运用具于词典的方法结合CRF模型。</li>
-<li>内容分类。</li>
-<li>文本的无监督学习，按照编号分类。</li>
-<li>主题模型：运用主题向量进行主题分布的预测（LDA）。</li>
-<li>embedding。</li>
-</ol>
-<h3 id="TF-IDF"><a href="#TF-IDF" class="headerlink" title="TF-IDF"></a>TF-IDF</h3><p>TF：term frequency，IDF：inverse document frequency<br>在文档中重复出现的词很重要，但是在所有文档中都重复出现的词不重要。IDF = log（N/（n+1））。 N是文档总数，n是包含特定词的文本。IDF是已经知道的，计算好的。TF乘以IDF就得到了每个词的权重，我们就可以选择top K了。</p>
-<h3 id="TextRank"><a href="#TextRank" class="headerlink" title="TextRank"></a>TextRank</h3><p>根据窗口内词和词的共同出现的关系分配词的权重，直到权重不在分配。共同出现的词就会互相支持成为关键词。</p>
-<h3 id="内容分类"><a href="#内容分类" class="headerlink" title="内容分类"></a>内容分类</h3><p>长文本进行内容分类较为容易，短文本分类常用SVM，工具上用Facebook开源的FastText。</p>
-<h3 id="实体识别"><a href="#实体识别" class="headerlink" title="实体识别"></a>实体识别</h3><p>Named-Entity Recognition，序列标注问题，和分词与词性标注属于同一类问题，这一类问题通常使用HMM 和 CRF解决。具体工具使用spaCy。</p>
-<h3 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h3><p>通常被主题模型代替，clustering的经典算法LDA（linear discriminant analysis，不是latent dirichlet allocation），通常使用LDA因为本身就有classification的过程，按照指定的类数目进行划分。 LDA的训练工具包括PLDA和Gensim。</p>
-<h3 id="embedding"><a href="#embedding" class="headerlink" title="embedding"></a>embedding</h3><p>大多使用经典word2vec。</p>
-<h2 id="标签选择"><a href="#标签选择" class="headerlink" title="标签选择"></a>标签选择</h2><p>解决如何将物品结构化的讯息给用户。逻辑是通过用户的标注找到真正让用户感兴趣的特征。常用方法为CHI卡方检验和IG信息增益。中心思想是提取同一个类别中的内容的特征并认为是这个特征导致了用户的分类行为（点击或者不点击）。CHI卡方检验：reject  hypothesis that the component and class are independent。</p>
-<p>信息增益：information Gain，各个类别的文本数量差不多的时候信息熵较大，少数类别文本数量较多的时候信息熵小。做法分为：统计全文信息熵，计算每个词的条件熵，两者相减就是信息增益。 具体算法使用决策树。卡方检验针对的是特定词，而信息增益是全局离线计算。</p>
-<h2 id="内容推荐的重点"><a href="#内容推荐的重点" class="headerlink" title="内容推荐的重点"></a>内容推荐的重点</h2><p>标签其实只能帮助推荐系统一部分，关注标签的多少其实意义不是很大，内容推荐至关重要，这种情况在冷启动的条件下是非常明显的。</p>
-<p>内容推荐应该做成一种检索系统，复杂的推荐系统一般都是从最开始的内容推荐逐渐发展起来的。</p>
-<p>内容推荐中的最容易获得，这也是在新品登陆没有标签讯息和用户冷启动时不知道如何推荐时的最好做法，做好内容需要以下四点：</p>
-<pre><code>1. 抓：持续抓取数据来丰富自己的内容，增加容量，增加dimension。
-2. 洗：抓取的内容应该过滤掉自己可能不需要的部分和不涉及的敏感内容等。
-3. 挖：对自己的内容进行更加深入地挖掘和理解。
-4. 算：和用户的属性进行匹配从而计算更加合理的相关性。
-</code></pre><p>抓数据肯定是有专门团队在做，大规模使用爬虫技术。抓来的数据需要清理，包括去除重复，垃圾内容，色情，政治等，这个运用边角算法。</p>
-<p>基于内容的推荐，主要是对内容的分析和挖掘，随着内容分析的深入，系统对于内容的理解也就越加的精细，推荐的转化率就会高，内容分析有两个重要产出：</p>
-<ol>
-<li>结构化内容库</li>
-<li>内容分析模型</li>
-</ol>
-<p>结构化内容库主要用于给用户构建user profile。内容分析模型作用是将新进的数据进行处理之后分配出去。通过1我们可以得到代表user的sparse vector，通过2对内容的处理，我们可以得到代表内容的sparse vector。两个vector 的cosine similarity作为weights对检索到内容从高到低rank。如果内容分析做的很好，那么结果也不错且可解释性强不少。其次可以用信息检索中的算法比如BM25F算法，开源引擎已经实现了Lucene。如果为了针对某一个指标进行优化的话，可以训练logistic regression和GBDT梯度提升树两者结合，用于预估用户点击或者不点击的概率</p>
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ol>
-<li>内容含有很多的data应该好好利用。</li>
-<li>产品冷启动只能人工标签或者内容推荐，因为没有用户行为</li>
-<li>新的物品要推荐，首选内容推荐</li>
-<li>所以文本化内容的推荐思想是先将内容进行结构化处理，然后将用户动作的结构化内容作为user profile的一部分。</li>
-</ol>
+<h2 id="矩阵分解的潜在问题："><a href="#矩阵分解的潜在问题：" class="headerlink" title="矩阵分解的潜在问题："></a>矩阵分解的潜在问题：</h2><p>我们在做矩阵分解的时候使用的loss和自己本身的愿景都是提升模型预测的准确度，在train的过程中使得模型逼近正样本。但是最后推荐的时候我们还是进行排序输出，所以我们实际上是做了一件困难的事情来求解一个简单的事情（其实有点像用了parametric method做classification的感觉，其实我们只关注boundary，不关注distribution）。</p>
+<p>对用户进行单一物品单用户推荐为point-wise，提供几个物品对物品进行排序为pair-wise。矩阵分解属于point-wise，且在optimize的过程中将缺失值看作负样本，而缺失值并不一定在用户面前为负。</p>
+<h2 id="贝叶斯个性化排序（BPR）："><a href="#贝叶斯个性化排序（BPR）：" class="headerlink" title="贝叶斯个性化排序（BPR）："></a>贝叶斯个性化排序（BPR）：</h2><p>专注于做排序推荐，放弃了纯评分预测的线路，BPR主要在样本构建，模型目标函数与模型学习框架三方面进行了优化。</p>
+<h3 id="构建样本："><a href="#构建样本：" class="headerlink" title="构建样本："></a>构建样本：</h3><p>通过四元组的方式构建样本：（用户，物品1，物品2，两物品顺序）的tuple。使用了物品1没有使用物品2为正，相反则为负，没有其他情况。</p>
+<h3 id="目标函数与学习框架："><a href="#目标函数与学习框架：" class="headerlink" title="目标函数与学习框架："></a>目标函数与学习框架：</h3><p>因为通过样本构造之后其实可以直接考虑成classification问题，使用sigmoid-cross-entropy直接进行loss构造就可以了。同时使用正则化项（相当于给parameter加了先验，所以名字里面带了贝叶斯）。training直接抛弃了交替最小二乘，使用minibatchSGD进行训练即可。同时，训练的效果也可以通过AUC进行观测。因为其目标函数在进行简化之后与AUC有着相似的结构，所以也可以认为该方法是为提升AUC量身打造。</p>
 
       
     </div>
@@ -502,9 +465,7 @@
           
             <a href="/tags/推荐/" rel="tag"># 推荐</a>
           
-            <a href="/tags/内容推荐/" rel="tag"># 内容推荐</a>
-          
-            <a href="/tags/content-based/" rel="tag"># content-based</a>
+            <a href="/tags/collaborative-filtering/" rel="tag"># collaborative filtering</a>
           
         </div>
       
@@ -517,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/15/推荐系统开篇/" rel="next" title="推荐系统开篇（blog总结）">
-                <i class="fa fa-chevron-left"></i> 推荐系统开篇（blog总结）
+              <a href="/2019/02/21/推荐系统：协同过滤第三部分（blog）/" rel="next" title="推荐系统：协同过滤第三部分（blog总结）">
+                <i class="fa fa-chevron-left"></i> 推荐系统：协同过滤第三部分（blog总结）
               </a>
             
           </div>
@@ -526,10 +487,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/15/推荐系统：协同过滤部分/" rel="prev" title="推荐系统：协同过滤第一部分（blog总结）">
-                推荐系统：协同过滤第一部分（blog总结） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -675,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#用户画像"><span class="nav-number">1.</span> <span class="nav-text">用户画像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从文本中构建用户画像"><span class="nav-number">2.</span> <span class="nav-text">从文本中构建用户画像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TF-IDF"><span class="nav-number">2.1.</span> <span class="nav-text">TF-IDF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TextRank"><span class="nav-number">2.2.</span> <span class="nav-text">TextRank</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容分类"><span class="nav-number">2.3.</span> <span class="nav-text">内容分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实体识别"><span class="nav-number">2.4.</span> <span class="nav-text">实体识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚类"><span class="nav-number">2.5.</span> <span class="nav-text">聚类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#embedding"><span class="nav-number">2.6.</span> <span class="nav-text">embedding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签选择"><span class="nav-number">3.</span> <span class="nav-text">标签选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容推荐的重点"><span class="nav-number">4.</span> <span class="nav-text">内容推荐的重点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结："><span class="nav-number">5.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用交替最小二乘法"><span class="nav-number">1.</span> <span class="nav-text">使用交替最小二乘法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用ASL的优势："><span class="nav-number">1.1.</span> <span class="nav-text">使用ASL的优势：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ASL针对Implicit-feedback的优化："><span class="nav-number">2.</span> <span class="nav-text">ASL针对Implicit feedback的优化：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐计算过程："><span class="nav-number">3.</span> <span class="nav-text">推荐计算过程：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#矩阵分解的潜在问题："><span class="nav-number">4.</span> <span class="nav-text">矩阵分解的潜在问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贝叶斯个性化排序（BPR）："><span class="nav-number">5.</span> <span class="nav-text">贝叶斯个性化排序（BPR）：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建样本："><span class="nav-number">5.1.</span> <span class="nav-text">构建样本：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目标函数与学习框架："><span class="nav-number">5.2.</span> <span class="nav-text">目标函数与学习框架：</span></a></li></ol></li></ol></div>
             
 
           </div>
