@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="为什么要进行模型融合：模型融合就是集成学习的体现，通过组合多个不同capacity和inductive bias的模型获得单一模型无法得到的结果，我们也通常管这个过程叫做：  “Wisdom of the crowd”  推荐系统通常包括：挖掘，召回，排序。  挖掘：对用户与物品做深入的结构化分析和处理，为离线工作。  召回：通过一定手段先从库里面筛选出来一些靠谱的物品。  排序：对筛选后的物品进">
-<meta name="keywords" content="推荐,模型融合">
+  <meta name="description" content="Intuition：实践中最常用的模型其实是logistic regression，然后用这个去预估CTR，这个C不只是click这么狭义，也可以是任何动作。然后，工程师们把经理统统用在处理特征上面，发掘新的特征，特征组合，寻找新的特征离散方法。以上做法的好处：  简单，复杂度低。 特征工程可以投放主要的精力而且直接决定了指标的好坏。 可以进行并行化工作，各自搞个自己特征挖掘。 interpret">
+<meta name="keywords" content="推荐,模型融合,Wide&amp;Deep Learning,Deep FM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统：模型融合第一部分（blog总结）">
-<meta property="og:url" content="http://yoursite.com/2019/03/06/推荐系统：模型融合（blog总结）/index.html">
+<meta property="og:title" content="推荐系统：模型融合第二部分（blog总结）">
+<meta property="og:url" content="http://yoursite.com/2019/03/07/推荐系统：模型融合第二部分（blog总结）/index.html">
 <meta property="og:site_name" content="龙渊">
-<meta property="og:description" content="为什么要进行模型融合：模型融合就是集成学习的体现，通过组合多个不同capacity和inductive bias的模型获得单一模型无法得到的结果，我们也通常管这个过程叫做：  “Wisdom of the crowd”  推荐系统通常包括：挖掘，召回，排序。  挖掘：对用户与物品做深入的结构化分析和处理，为离线工作。  召回：通过一定手段先从库里面筛选出来一些靠谱的物品。  排序：对筛选后的物品进">
+<meta property="og:description" content="Intuition：实践中最常用的模型其实是logistic regression，然后用这个去预估CTR，这个C不只是click这么狭义，也可以是任何动作。然后，工程师们把经理统统用在处理特征上面，发掘新的特征，特征组合，寻找新的特征离散方法。以上做法的好处：  简单，复杂度低。 特征工程可以投放主要的精力而且直接决定了指标的好坏。 可以进行并行化工作，各自搞个自己特征挖掘。 interpret">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-07T08:37:04.338Z">
+<meta property="og:updated_time" content="2019-03-07T08:38:20.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统：模型融合第一部分（blog总结）">
-<meta name="twitter:description" content="为什么要进行模型融合：模型融合就是集成学习的体现，通过组合多个不同capacity和inductive bias的模型获得单一模型无法得到的结果，我们也通常管这个过程叫做：  “Wisdom of the crowd”  推荐系统通常包括：挖掘，召回，排序。  挖掘：对用户与物品做深入的结构化分析和处理，为离线工作。  召回：通过一定手段先从库里面筛选出来一些靠谱的物品。  排序：对筛选后的物品进">
+<meta name="twitter:title" content="推荐系统：模型融合第二部分（blog总结）">
+<meta name="twitter:description" content="Intuition：实践中最常用的模型其实是logistic regression，然后用这个去预估CTR，这个C不只是click这么狭义，也可以是任何动作。然后，工程师们把经理统统用在处理特征上面，发掘新的特征，特征组合，寻找新的特征离散方法。以上做法的好处：  简单，复杂度低。 特征工程可以投放主要的精力而且直接决定了指标的好坏。 可以进行并行化工作，各自搞个自己特征挖掘。 interpret">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/06/推荐系统：模型融合（blog总结）/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/07/推荐系统：模型融合第二部分（blog总结）/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>推荐系统：模型融合第一部分（blog总结） | 龙渊</title>
+  <title>推荐系统：模型融合第二部分（blog总结） | 龙渊</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/推荐系统：模型融合（blog总结）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/推荐系统：模型融合第二部分（blog总结）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Tan">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">推荐系统：模型融合第一部分（blog总结）
+          <h1 class="post-title" itemprop="name headline">推荐系统：模型融合第二部分（blog总结）
 
               
             
@@ -366,24 +366,12 @@
                 
               
 
-              <time title="创建时间：2019-03-06 16:16:13" itemprop="dateCreated datePublished" datetime="2019-03-06T16:16:13+08:00">2019-03-06</time>
+              <time title="创建时间：2019-03-07 15:14:13 / 修改时间：16:38:20" itemprop="dateCreated datePublished" datetime="2019-03-07T15:14:13+08:00">2019-03-07</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-07 16:37:04" itemprop="dateModified" datetime="2019-03-07T16:37:04+08:00">2019-03-07</time>
               
             
           </span>
@@ -434,29 +422,35 @@
       
 
       
-        <h2 id="为什么要进行模型融合："><a href="#为什么要进行模型融合：" class="headerlink" title="为什么要进行模型融合："></a>为什么要进行模型融合：</h2><p>模型融合就是集成学习的体现，通过组合多个不同capacity和inductive bias的模型获得单一模型无法得到的结果，我们也通常管这个过程叫做：</p>
+        <h2 id="Intuition："><a href="#Intuition：" class="headerlink" title="Intuition："></a>Intuition：</h2><p>实践中最常用的模型其实是logistic regression，然后用这个去预估CTR，这个C不只是click这么狭义，也可以是任何动作。然后，工程师们把经理统统用在处理特征上面，发掘新的特征，特征组合，寻找新的特征离散方法。以上做法的好处：</p>
+<ol>
+<li>简单，复杂度低。</li>
+<li>特征工程可以投放主要的精力而且直接决定了指标的好坏。</li>
+<li>可以进行并行化工作，各自搞个自己特征挖掘。</li>
+<li>interpretability好。</li>
+</ol>
+<p>所以在深度学习之前，很多推荐系统都是使用“宽模型”（因为特征的扩充，让模型非常的宽）：</p>
 <blockquote>
-<p>“Wisdom of the crowd”</p>
+<p>“线性模型+特征工程”的特征海洋战术</p>
 </blockquote>
-<p>推荐系统通常包括：挖掘，召回，排序。</p>
-<ol>
-<li><p>挖掘：对用户与物品做深入的结构化分析和处理，为离线工作。</p>
-</li>
-<li><p>召回：通过一定手段先从库里面筛选出来一些靠谱的物品。</p>
-</li>
-<li><p>排序：对筛选后的物品进行排序。</p>
-</li>
+<p>但是，深度学习以其优秀的auto feature engineering的能力与泛化能力完成了“end-to-end”的工作，使得项目实际落地难度大大降低，减少了机械性的特征工程工作。</p>
+<h2 id="Wide-amp-Deep-Learning："><a href="#Wide-amp-Deep-Learning：" class="headerlink" title="Wide&amp;Deep Learning："></a>Wide&amp;Deep Learning：</h2><h3 id="Deep："><a href="#Deep：" class="headerlink" title="Deep："></a>Deep：</h3><p>首先，对于类别特征，首先进行embedding，每个特征单独进行，一般生成一个32维度向量，连续型特征在做归一化。之后将embedding的feature与归一化后的连续特征进行拼接，此时维度为1000维度以上，输入到深度网络中，逐层递减维度。</p>
+<h3 id="Wide："><a href="#Wide：" class="headerlink" title="Wide："></a>Wide：</h3><p>Wide就是传统做法，通过特征交叉组合，直接输入到最后一层。</p>
+<h3 id="Wide-amp-Deep："><a href="#Wide-amp-Deep：" class="headerlink" title="Wide&amp;Deep："></a>Wide&amp;Deep：</h3><p>最后一层其实是一个Logistic Regression，融合Wide端与Deep端两个方向的feature，进行输出。在Inference的过程中，对于每个用户不同app的分数将进行多线程并行运算，最终进行排序。</p>
+<h3 id="DeepFM，PNN，FNN："><a href="#DeepFM，PNN，FNN：" class="headerlink" title="DeepFM，PNN，FNN："></a>DeepFM，PNN，FNN：</h3><p>这些都是在wide&amp;deep的基础上使用factorization machine的增强版本，DeepFM是两个模型使用相同的embedding后直接将FM与Deep进行融合。FNN是使用FM对网络进行pre-train，PNN是在embedding之后在embedding之间和第一层直接进行相互组合，也有很多变种。（<strong>不同的模型有不同的inductive bias，如果融合的太早那么双方的优势可能并不能完全的发挥，即便是借助了一方的idea，对方模型本身也可能是无法替代的，所以在资源重组的时候尽量保留模型完整可能是较好的选择</strong>）</p>
+<h3 id="Training："><a href="#Training：" class="headerlink" title="Training："></a>Training：</h3><p>这里需要注意的是，原paper使用的是joint training而不是ensemble，这样有利于降低wide和deep两部分分别的复杂程度。训练通过minimize sigmoid-cross-entropy进行，在得到gradient之后，wide部分使用FTRL进行优化，deep部分使用adagrad进行优化。</p>
+<h3 id="重点："><a href="#重点：" class="headerlink" title="重点："></a>重点：</h3><ol>
+<li>是一种工程方向上的结合，适用于稀疏向量特别多的场景。</li>
+<li>已经有开源实现了，可以很快落地。</li>
+<li>每天进行更新可以使用前一天的参数进行初始化，使用FTRL的wide端此时表现也很良好。</li>
+<li>先做embedding之后再用dense vector输入，要不然维度还是太大。</li>
+<li>多线程并行评分计算可以大大降低响应时间。</li>
 </ol>
-<p>在排序过程中，不同了模型给出的结果是有差异的，某些模型会直接给出排序，而另一些模型给出posterior，并且模型间对于不同推荐结果的confidence在不同情况下也不能做比较。所以通过直接的数值计算不能直接融合出来可靠的推荐结果，特别是在CTR预估等方面。</p>
-<h2 id="被广泛应用的模型融合方案："><a href="#被广泛应用的模型融合方案：" class="headerlink" title="被广泛应用的模型融合方案："></a>被广泛应用的模型融合方案：</h2><h3 id="特征工程-Logistic-Regression："><a href="#特征工程-Logistic-Regression：" class="headerlink" title="特征工程+Logistic Regression："></a>特征工程+Logistic Regression：</h3><p>最经常使用的模型融合解决方案，选特征+学权重的经典落地模式，难点在于需要human expert或者其他方法决定feature selection和featuer interaction（<strong>目前有研究可以使用深度增强学习（DRL）学习有效的feature interaction，这个也是推荐系统未来的方向之一</strong>）。现实中因为online learning的需要，普通的GD优化不仅不能保证准确率，也不能构建稀疏权重加快inference，所以需要特殊的优化手段，目前最受推崇的仍然是在线学习优化算法仍然是google提出的 <strong>FTRL</strong> ，在各大公司都有应用。</p>
-<h3 id="GBDT："><a href="#GBDT：" class="headerlink" title="GBDT："></a>GBDT：</h3><p>Gradient boosted decision trees是另一个典型的可以马上落地的算法，通过构建DT不断地拟合上一层树的结果与label的残差来不断地提升performance。GBDT有非常强大的开源实现，也可以使用xgboost实现。</p>
-<h3 id="Factorization-Machine以及在模型融合方面的应用："><a href="#Factorization-Machine以及在模型融合方面的应用：" class="headerlink" title="Factorization Machine以及在模型融合方面的应用："></a>Factorization Machine以及在模型融合方面的应用：</h3><p>之所以把FM放在这个章节是因为FM在2010年提出并被使用之后，工业界大多使用其优异的性能进行模型融合！当然单独使用FM也是可以的。</p>
-<p>由于最基本的logistic regression不能做non-linear prediction。为了提升模型的capacity，我们通常考虑使用feature interaction的手段进行学习。但是即使是用最简单的二阶笛卡尔组合，也仍然存在很大的问题：</p>
+<h3 id="AUC有哪些不足之处："><a href="#AUC有哪些不足之处：" class="headerlink" title="AUC有哪些不足之处："></a>AUC有哪些不足之处：</h3><p>原paper使用了AUC作为指标，但是AUC在使用的过程中确实还是有一些不足之处：</p>
 <ol>
-<li>组合特征不有效还造成了维度灾难（也有可能本身使用二阶feature就是错误的assumption）。</li>
-<li>组合特征本身可能很sparse，这样可能找不到足够多的样本学出来对应的权重。</li>
+<li>反映了整体性能，但反映不同点击率区间上的物品推荐效果欠佳（长尾）</li>
+<li>AUC反映了排序的能力，并没有准确体现精度。</li>
 </ol>
-<p>所以业界通常使用FM之后得到的两个feature的latent factor的点积代替本来的权重。那么在训练和预测中只要从数据库里面把对应feature拿出来使用即可，预测过程也可以使用不同的计算顺序将计算复杂度控制在O（nk）。其实FM如果只对应user-item矩阵就是SVD的实现，通过特定的改造可以实现Field-aware FM（FFM），<strong>2017年的DeepFM可以研究一下，其他关于使用FM的变种也会进行介绍（哈工大和华为诺亚实验室做的，在下一章和Wide-and-deep一起讨论一下）</strong> 。</p>
 
       
     </div>
@@ -484,6 +478,10 @@
           
             <a href="/tags/模型融合/" rel="tag"># 模型融合</a>
           
+            <a href="/tags/Wide-Deep-Learning/" rel="tag"># Wide&Deep Learning</a>
+          
+            <a href="/tags/Deep-FM/" rel="tag"># Deep FM</a>
+          
         </div>
       
 
@@ -495,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/05/推荐系统：协同过滤第四部分（blog总结）/" rel="next" title="推荐系统：协同过滤第四部分（blog总结）">
-                <i class="fa fa-chevron-left"></i> 推荐系统：协同过滤第四部分（blog总结）
+              <a href="/2019/03/06/推荐系统：模型融合（blog总结）/" rel="next" title="推荐系统：模型融合第一部分（blog总结）">
+                <i class="fa fa-chevron-left"></i> 推荐系统：模型融合第一部分（blog总结）
               </a>
             
           </div>
@@ -504,10 +502,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/07/推荐系统：模型融合第二部分（blog总结）/" rel="prev" title="推荐系统：模型融合第二部分（blog总结）">
-                推荐系统：模型融合第二部分（blog总结） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -659,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要进行模型融合："><span class="nav-number">1.</span> <span class="nav-text">为什么要进行模型融合：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#被广泛应用的模型融合方案："><span class="nav-number">2.</span> <span class="nav-text">被广泛应用的模型融合方案：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特征工程-Logistic-Regression："><span class="nav-number">2.1.</span> <span class="nav-text">特征工程+Logistic Regression：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GBDT："><span class="nav-number">2.2.</span> <span class="nav-text">GBDT：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Factorization-Machine以及在模型融合方面的应用："><span class="nav-number">2.3.</span> <span class="nav-text">Factorization Machine以及在模型融合方面的应用：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intuition："><span class="nav-number">1.</span> <span class="nav-text">Intuition：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wide-amp-Deep-Learning："><span class="nav-number">2.</span> <span class="nav-text">Wide&amp;Deep Learning：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep："><span class="nav-number">2.1.</span> <span class="nav-text">Deep：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wide："><span class="nav-number">2.2.</span> <span class="nav-text">Wide：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wide-amp-Deep："><span class="nav-number">2.3.</span> <span class="nav-text">Wide&amp;Deep：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DeepFM，PNN，FNN："><span class="nav-number">2.4.</span> <span class="nav-text">DeepFM，PNN，FNN：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training："><span class="nav-number">2.5.</span> <span class="nav-text">Training：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重点："><span class="nav-number">2.6.</span> <span class="nav-text">重点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AUC有哪些不足之处："><span class="nav-number">2.7.</span> <span class="nav-text">AUC有哪些不足之处：</span></a></li></ol></li></ol></div>
             
 
           </div>
