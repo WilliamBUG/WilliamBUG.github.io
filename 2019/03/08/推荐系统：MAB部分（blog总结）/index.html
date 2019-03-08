@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="Item-based：在浏览网店的时候一般会出现：  买了这个的还买了，看了这个的还看了，喜欢这个的还喜欢了。  这种推荐可以通过物品相关度或者使用item-based的方法实现推荐，item-based称为基于物品的协同过滤，最早出现在文章：Item-based cooperative filter中。 user-based的缺点： 用户数量大（所以计算之后还要排序，针对用户还要储存TopK，耗">
-<meta name="keywords" content="推荐,collaborative filtering">
+  <meta name="description" content="Contextual Bandit在广告推荐中应用特别广泛，和一部分我们着重说说bandit应用的相关算法和内容。 Bandit其实就是reinforcement learning一个state和多个action的情况，但是目前在前沿的研究中我们逐渐发现使用RL能带来更好的长远收益，因为使用RL类算法能够在用户与系统的交互关系上进行建模（所以可能物品使用间隔越短的场景越有效），而目前Bandit算">
+<meta name="keywords" content="推荐,MAB,Thompson sampling,UCB,LinUCB,COFIBA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统：协同过滤第二部分（blog总结）">
-<meta property="og:url" content="http://yoursite.com/2019/02/15/推荐系统：协同过滤第二部分/index.html">
+<meta property="og:title" content="推荐系统：MAB部分（blog总结）">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/推荐系统：MAB部分（blog总结）/index.html">
 <meta property="og:site_name" content="龙渊">
-<meta property="og:description" content="Item-based：在浏览网店的时候一般会出现：  买了这个的还买了，看了这个的还看了，喜欢这个的还喜欢了。  这种推荐可以通过物品相关度或者使用item-based的方法实现推荐，item-based称为基于物品的协同过滤，最早出现在文章：Item-based cooperative filter中。 user-based的缺点： 用户数量大（所以计算之后还要排序，针对用户还要储存TopK，耗">
+<meta property="og:description" content="Contextual Bandit在广告推荐中应用特别广泛，和一部分我们着重说说bandit应用的相关算法和内容。 Bandit其实就是reinforcement learning一个state和多个action的情况，但是目前在前沿的研究中我们逐渐发现使用RL能带来更好的长远收益，因为使用RL类算法能够在用户与系统的交互关系上进行建模（所以可能物品使用间隔越短的场景越有效），而目前Bandit算">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-21T07:46:10.126Z">
+<meta property="og:updated_time" content="2019-03-08T09:07:57.646Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统：协同过滤第二部分（blog总结）">
-<meta name="twitter:description" content="Item-based：在浏览网店的时候一般会出现：  买了这个的还买了，看了这个的还看了，喜欢这个的还喜欢了。  这种推荐可以通过物品相关度或者使用item-based的方法实现推荐，item-based称为基于物品的协同过滤，最早出现在文章：Item-based cooperative filter中。 user-based的缺点： 用户数量大（所以计算之后还要排序，针对用户还要储存TopK，耗">
+<meta name="twitter:title" content="推荐系统：MAB部分（blog总结）">
+<meta name="twitter:description" content="Contextual Bandit在广告推荐中应用特别广泛，和一部分我们着重说说bandit应用的相关算法和内容。 Bandit其实就是reinforcement learning一个state和多个action的情况，但是目前在前沿的研究中我们逐渐发现使用RL能带来更好的长远收益，因为使用RL类算法能够在用户与系统的交互关系上进行建模（所以可能物品使用间隔越短的场景越有效），而目前Bandit算">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/15/推荐系统：协同过滤第二部分/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/08/推荐系统：MAB部分（blog总结）/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>推荐系统：协同过滤第二部分（blog总结） | 龙渊</title>
+  <title>推荐系统：MAB部分（blog总结） | 龙渊</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/15/推荐系统：协同过滤第二部分/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/推荐系统：MAB部分（blog总结）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Tan">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">推荐系统：协同过滤第二部分（blog总结）
+          <h1 class="post-title" itemprop="name headline">推荐系统：MAB部分（blog总结）
 
               
             
@@ -366,24 +366,12 @@
                 
               
 
-              <time title="创建时间：2019-02-15 17:32:44" itemprop="dateCreated datePublished" datetime="2019-02-15T17:32:44+08:00">2019-02-15</time>
+              <time title="创建时间：2019-03-08 15:15:22 / 修改时间：17:07:57" itemprop="dateCreated datePublished" datetime="2019-03-08T15:15:22+08:00">2019-03-08</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-21 15:46:10" itemprop="dateModified" datetime="2019-02-21T15:46:10+08:00">2019-02-21</time>
               
             
           </span>
@@ -434,33 +422,43 @@
       
 
       
-        <h2 id="Item-based："><a href="#Item-based：" class="headerlink" title="Item-based："></a>Item-based：</h2><p>在浏览网店的时候一般会出现：</p>
+        <p>Contextual Bandit在广告推荐中应用特别广泛，和一部分我们着重说说bandit应用的相关算法和内容。</p>
+<p>Bandit其实就是reinforcement learning一个state和多个action的情况，但是目前在前沿的研究中我们逐渐发现使用RL能带来更好的长远收益，因为使用RL类算法能够在用户与系统的交互关系上进行建模（所以可能物品使用间隔越短的场景越有效），而目前Bandit算法着重解决的还是冷启动问题和explore-exploit问题，没有能力模拟交互过程。</p>
+<h2 id="Bandit"><a href="#Bandit" class="headerlink" title="Bandit"></a>Bandit</h2><p>Bandit认为推荐的本质就是不同的选择，就是在用户与物品之间建立连接。那么建立连接的方式也多种多样，我们怎么知道在何时选用最佳的连接方式（连接策略）？</p>
+<p>Multi-arm-bandit（MAB）同时可以解决如下问题：</p>
+<ol>
+<li>如何快速地确定用户在型领域的感兴趣的内容？（冷启动）（exploration）</li>
+<li>最大化收益的问题（Maximize reward）</li>
+<li>新旧模型相比的风险evaluation</li>
+</ol>
+<h3 id="Explore-exploit："><a href="#Explore-exploit：" class="headerlink" title="Explore-exploit："></a>Explore-exploit：</h3><h4 id="传统metric："><a href="#传统metric：" class="headerlink" title="传统metric："></a>传统metric：</h4><p>使用累计遗憾作为衡量标准，假设每次收益为bernoulli收益，那么每次最好选择所得的收益减去实际收益两者的差值的和就是累计遗憾。bandit在ee问题的核心思想是：对“不确定的”和“确定是好的”两者采取action。判断一个算法在ee问题上的表现可以观察累计遗憾的增长，如果一个算法在累计遗憾的增长缓慢平滑，那就是比较优秀的。</p>
+<h4 id="Thompson-sampling："><a href="#Thompson-sampling：" class="headerlink" title="Thompson sampling："></a>Thompson sampling：</h4><p>假设每个action的收益结果是一个beta distribution。这样我们就可以通过beta distribution里面的alpha和beta参数来确定，当action是否有reward是由bernoulli distribution决定的时候，bernoulli的参数p是多少。这个p就可以通过beta distribution直接sanmple出来，如果一个action已经出现了多次且对应reward基数很大，那么从beta distribution sample出来的p也就相对确定了，如果action出现的少，那么p就会相对的uniform一些，起到exploration的作用。（<strong>注意在使用时alpha和beta参数应该是1+n，n为得到或者没有得到reward的次数，如果alpha和beta都为1是uniform distribution</strong>）</p>
+<h4 id="Upper-Confidence-Bound："><a href="#Upper-Confidence-Bound：" class="headerlink" title="Upper Confidence Bound："></a>Upper Confidence Bound：</h4><p>当我们认为决定一个action有没有reward的p是在一个区间中且我们总是可以乐观地认为下一次决定action回报的是p+delta的时候，我们可以使用Chernoff-Hoeffding Bound来计算出上大概率的上限区间是什么。置信分为两个部分：前面为平均收益，后面为所加的bonus。lnt是总选择次数的对数，T是选择这个action的次数：</p>
 <blockquote>
-<p>买了这个的还买了，看了这个的还看了，喜欢这个的还喜欢了。</p>
+<p>x + （2*lnt/T）** 0.5</p>
 </blockquote>
-<p>这种推荐可以通过物品相关度或者使用item-based的方法实现推荐，item-based称为基于物品的协同过滤，最早出现在文章：Item-based cooperative filter中。</p>
-<h3 id="user-based的缺点："><a href="#user-based的缺点：" class="headerlink" title="user-based的缺点："></a>user-based的缺点：</h3><ol>
-<li>用户数量大（所以计算之后还要排序，针对用户还要储存TopK，耗费资源）。</li>
-<li>用户口味变化在user-based算法中体现不出来（只是划分了兴趣小组，在每变得很不同之前系统基本上探测不到）。</li>
-<li>数据sparse，用户与用户间相似的行为其实比较少，很难体现出兴趣所在（尤其是在物品较多的情况下）。</li>
-</ol>
-<h3 id="item-based如何解决以上缺陷："><a href="#item-based如何解决以上缺陷：" class="headerlink" title="item-based如何解决以上缺陷："></a>item-based如何解决以上缺陷：</h3><p>Item-based的方法，由于本身数量可能少于用户数量，再加上属性变化不快，且面对用户的数量巨大，可以应对以上缺陷。<br>方法核心思想具体如下：</p>
+<h4 id="Epsilon-greedy："><a href="#Epsilon-greedy：" class="headerlink" title="Epsilon-greedy："></a>Epsilon-greedy：</h4><p>每次以很小的概率epsilon来随机选择一个action，其他时间都是greedy的去选择。这个在off-policy类的RL中很常用，且算法都是设置成epsilon随时间递减。</p>
+<p>目前来看 UCB和Thompson最优秀，但Thompson sampling本身也有针对选择的assumption，所以本身使用需要注意。</p>
+<h3 id="UCB与LinUCB："><a href="#UCB与LinUCB：" class="headerlink" title="UCB与LinUCB："></a>UCB与LinUCB：</h3><p>UCB 在现实中应用的效果非常的好，但是单纯的使用UCB是有一些问题的，比如在冷启动中，algorithm对于新的item的信息都是0，必须从头开始尝试，然后新的item其实在feature上可能与其他item有很大的关系，所以如何使用feature就是问题啦。</p>
+<p>在推荐中UBC是置信的上区间，也就是系统觉得uncertainty越大的置信区间越大，本身得到的reward越大，那么就越有可能选，这是一种optimistic的做法，如果悲观一些，那么我们可以选择LBC，也就是lower bound来进行排序（但是通常都是UCB）。</p>
+<h4 id="LinUCB："><a href="#LinUCB：" class="headerlink" title="LinUCB："></a>LinUCB：</h4><p>跟据UCB置信区间的思想，我们可以把输入变成user的feature，对每个item的推荐是一个arm，每个arm是一个linear regression。样本是一个m*d的矩阵，有m个样本且每个样本的feature的dimension是d。对于每一个arm就可以用normal equation求解了，但是由于很多都是sparse的，所以采用岭回归（ridge regression，适用于样本数小于特征数）法，每个arm就可以进行计算更新了。之后我们可以计算expected reward（加权和）和Upper bound。</p>
+<p>再是用LinUCB时要着重考虑feature的事，因为本质上是对每一个物品做一个prediction，所以feature的稀疏性一定要着重考虑。</p>
+<p>LinUCB的优势：</p>
 <ol>
-<li>构建物品用户关系矩阵</li>
-<li>计算物品用户关系矩阵的行相似度，得到物品物品相似度矩阵</li>
-<li>根据计算结构进行推荐。</li>
+<li>比UCB更快的收敛且更快见效。</li>
+<li>各个arm之间参数独立更新且可以互相不影响地进行参数更新。</li>
+<li>由于参与计算的是特征，arm也是独立的，所以可以动态增加删减。</li>
 </ol>
-<p>物品相似度可以使用cosine similarity进行计算，因为vector sparse的缘故，计算复杂度不是很高。同时可以针对性地进行优化：</p>
+<p>LinUCB的劣势：候选item最好控制在几百个左右。</p>
+<h3 id="COFIBA："><a href="#COFIBA：" class="headerlink" title="COFIBA："></a>COFIBA：</h3><p>2016年的算法，这个算法讨论如何将MAB和collebrative filtering结合。虽然collebrative filtering的intuiation 是物以类聚人以群分，但是也会出现一定的问题，比如信息茧房效应。</p>
+<h4 id="信息茧房："><a href="#信息茧房：" class="headerlink" title="信息茧房："></a>信息茧房：</h4><p>推荐系统在物以类聚人以群分之后，就对个人的探索兴趣不在看中了，只会提供用户之前感兴趣的东西，不会exploration，将user困在茧房中。</p>
+<p>对于推荐系统的两种规律：</p>
 <ol>
-<li>物品中心化：物品评分 - 物品的所用用户平均分（压制脑残粉的集体高分）</li>
-<li>用户中心化：单一用户的所有评分 - 这个用户对于所有的物品评分 （针对所有均给好评和差评的用户，他们的评价不能客观体现物品好坏）</li>
+<li>物以类聚人以群分，相似的用户总会对同一个物品做出相似的动作。</li>
+<li>用户的决策是动态的，推荐算法是一种online learning。</li>
 </ol>
-<h3 id="计算推荐结构："><a href="#计算推荐结构：" class="headerlink" title="计算推荐结构："></a>计算推荐结构：</h3><p>得到物品物品关系矩阵后，进行推荐，一般有两种应用场景：</p>
-<ol>
-<li>TopK推荐： 预测用户对于物品i的评分，这个评分等于用户所有物体的评分与物品相似度的加权平均，之后按照分数高低进行TopK排序即可。</li>
-<li>直接推荐，是买完一个物品之后，直接根据这个物品的相似度进行计算。</li>
-</ol>
-<h3 id="Slope-One："><a href="#Slope-One：" class="headerlink" title="Slope One："></a>Slope One：</h3><p>一种简化算法算法，可以做成online的。这个算法认为，根据用户物品关系构建的矩阵所计算出的物品与物品的similarity可能不能正确反应出物品与物品的相似程度。Slope one对这个问题进行了改进，通过计算物品与物品之间的距离，之后对用户空缺的分数进行预测（补充好相差的分数后对分数进行加权平均，按照共同用户数加权）。</p>
+<p>所以针对以上两种规律，具体做法是不再由对用户个人feature做出prediction，而是由用户所在的cluster集体做出prediction。和LinUCB不同，系统不再针对单个用户，而是将不同用户的M矩阵加起来，之后针对合成的M矩阵进行ridge regression，计算置信空间，之后再跟新单个用户的M矩阵。Item cluster 和 user cluster也要顺序更新。</p>
+<h4 id="回到EE问题："><a href="#回到EE问题：" class="headerlink" title="回到EE问题："></a>回到EE问题：</h4><p>也可以通过随机的去除用户的历史行为来模拟用户的遗忘和性格的改变。<strong>探索是为了长期利益，但是由于探索需要的时间长，IT产品生命周期短，同样的产品竞争强烈，本身盈利也比较高，所以没有去做exploration的动力。所以，探索，需要精心设计，巧妙地保证探索是推荐的产品的高质量，维持平台本身的形象。</strong></p>
 
       
     </div>
@@ -486,7 +484,15 @@
           
             <a href="/tags/推荐/" rel="tag"># 推荐</a>
           
-            <a href="/tags/collaborative-filtering/" rel="tag"># collaborative filtering</a>
+            <a href="/tags/MAB/" rel="tag"># MAB</a>
+          
+            <a href="/tags/Thompson-sampling/" rel="tag"># Thompson sampling</a>
+          
+            <a href="/tags/UCB/" rel="tag"># UCB</a>
+          
+            <a href="/tags/LinUCB/" rel="tag"># LinUCB</a>
+          
+            <a href="/tags/COFIBA/" rel="tag"># COFIBA</a>
           
         </div>
       
@@ -499,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/15/推荐系统：协同过滤部分/" rel="next" title="推荐系统：协同过滤第一部分（blog总结）">
-                <i class="fa fa-chevron-left"></i> 推荐系统：协同过滤第一部分（blog总结）
+              <a href="/2019/03/07/推荐系统：模型融合第二部分（blog总结）/" rel="next" title="推荐系统：模型融合第二部分（blog总结）">
+                <i class="fa fa-chevron-left"></i> 推荐系统：模型融合第二部分（blog总结）
               </a>
             
           </div>
@@ -508,10 +514,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/21/推荐系统：协同过滤第三部分（blog）/" rel="prev" title="推荐系统：协同过滤第三部分（blog总结）">
-                推荐系统：协同过滤第三部分（blog总结） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -671,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Item-based："><span class="nav-number">1.</span> <span class="nav-text">Item-based：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#user-based的缺点："><span class="nav-number">1.1.</span> <span class="nav-text">user-based的缺点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#item-based如何解决以上缺陷："><span class="nav-number">1.2.</span> <span class="nav-text">item-based如何解决以上缺陷：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算推荐结构："><span class="nav-number">1.3.</span> <span class="nav-text">计算推荐结构：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slope-One："><span class="nav-number">1.4.</span> <span class="nav-text">Slope One：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bandit"><span class="nav-number">1.</span> <span class="nav-text">Bandit</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Explore-exploit："><span class="nav-number">1.1.</span> <span class="nav-text">Explore-exploit：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#传统metric："><span class="nav-number">1.1.1.</span> <span class="nav-text">传统metric：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Thompson-sampling："><span class="nav-number">1.1.2.</span> <span class="nav-text">Thompson sampling：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Upper-Confidence-Bound："><span class="nav-number">1.1.3.</span> <span class="nav-text">Upper Confidence Bound：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Epsilon-greedy："><span class="nav-number">1.1.4.</span> <span class="nav-text">Epsilon-greedy：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UCB与LinUCB："><span class="nav-number">1.2.</span> <span class="nav-text">UCB与LinUCB：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LinUCB："><span class="nav-number">1.2.1.</span> <span class="nav-text">LinUCB：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COFIBA："><span class="nav-number">1.3.</span> <span class="nav-text">COFIBA：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#信息茧房："><span class="nav-number">1.3.1.</span> <span class="nav-text">信息茧房：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#回到EE问题："><span class="nav-number">1.3.2.</span> <span class="nav-text">回到EE问题：</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
