@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="Intuition：实践中最常用的模型其实是logistic regression，然后用这个去预估CTR，这个C不只是click这么狭义，也可以是任何动作。然后，工程师们把经理统统用在处理特征上面，发掘新的特征，特征组合，寻找新的特征离散方法。以上做法的好处：  简单，复杂度低。 特征工程可以投放主要的精力而且直接决定了指标的好坏。 可以进行并行化工作，各自搞个自己特征挖掘。 interpret">
-<meta name="keywords" content="推荐,模型融合,Wide&amp;Deep Learning">
+  <meta name="description" content="探索的问题：在搜索场景的顺序决策过程中，任意决策点的决策与后续所能得到的结果之间的关联性有多大？后期action取得reward之后应该进行多少回传来激励agent前期选择reward。（其实是思考这个交互过程有没有model成MDP的需要，或者这个到底是不是一个MDP） 搜索排序问题：用户query－－引擎推荐topK－－用户动作（reward）－－直到用户离开搜索引擎，在具体实验中，作者发现交">
+<meta name="keywords" content="搜索排序,搜索策略,阿里强化学习,强化学习,RL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统：模型融合第二部分（blog总结）">
-<meta property="og:url" content="http://yoursite.com/2019/03/07/推荐系统：模型融合第二部分（blog总结）/index.html">
+<meta property="og:title" content="阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析">
+<meta property="og:url" content="http://yoursite.com/2019/03/11/阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析/index.html">
 <meta property="og:site_name" content="龙渊">
-<meta property="og:description" content="Intuition：实践中最常用的模型其实是logistic regression，然后用这个去预估CTR，这个C不只是click这么狭义，也可以是任何动作。然后，工程师们把经理统统用在处理特征上面，发掘新的特征，特征组合，寻找新的特征离散方法。以上做法的好处：  简单，复杂度低。 特征工程可以投放主要的精力而且直接决定了指标的好坏。 可以进行并行化工作，各自搞个自己特征挖掘。 interpret">
+<meta property="og:description" content="探索的问题：在搜索场景的顺序决策过程中，任意决策点的决策与后续所能得到的结果之间的关联性有多大？后期action取得reward之后应该进行多少回传来激励agent前期选择reward。（其实是思考这个交互过程有没有model成MDP的需要，或者这个到底是不是一个MDP） 搜索排序问题：用户query－－引擎推荐topK－－用户动作（reward）－－直到用户离开搜索引擎，在具体实验中，作者发现交">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-07T08:38:42.997Z">
+<meta property="og:updated_time" content="2019-03-11T09:13:53.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统：模型融合第二部分（blog总结）">
-<meta name="twitter:description" content="Intuition：实践中最常用的模型其实是logistic regression，然后用这个去预估CTR，这个C不只是click这么狭义，也可以是任何动作。然后，工程师们把经理统统用在处理特征上面，发掘新的特征，特征组合，寻找新的特征离散方法。以上做法的好处：  简单，复杂度低。 特征工程可以投放主要的精力而且直接决定了指标的好坏。 可以进行并行化工作，各自搞个自己特征挖掘。 interpret">
+<meta name="twitter:title" content="阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析">
+<meta name="twitter:description" content="探索的问题：在搜索场景的顺序决策过程中，任意决策点的决策与后续所能得到的结果之间的关联性有多大？后期action取得reward之后应该进行多少回传来激励agent前期选择reward。（其实是思考这个交互过程有没有model成MDP的需要，或者这个到底是不是一个MDP） 搜索排序问题：用户query－－引擎推荐topK－－用户动作（reward）－－直到用户离开搜索引擎，在具体实验中，作者发现交">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/07/推荐系统：模型融合第二部分（blog总结）/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/11/阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>推荐系统：模型融合第二部分（blog总结） | 龙渊</title>
+  <title>阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析 | 龙渊</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/推荐系统：模型融合第二部分（blog总结）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Tan">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">推荐系统：模型融合第二部分（blog总结）
+          <h1 class="post-title" itemprop="name headline">阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-03-07 15:14:13 / 修改时间：16:38:42" itemprop="dateCreated datePublished" datetime="2019-03-07T15:14:13+08:00">2019-03-07</time>
+              <time title="创建时间：2019-03-11 16:50:43 / 修改时间：17:13:53" itemprop="dateCreated datePublished" datetime="2019-03-11T16:50:43+08:00">2019-03-11</time>
             
 
             
@@ -388,7 +388,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/推荐系统/" itemprop="url" rel="index"><span itemprop="name">推荐系统</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/阿里强化学习/" itemprop="url" rel="index"><span itemprop="name">阿里强化学习</span></a></span>
 
                 
                 
@@ -422,35 +422,17 @@
       
 
       
-        <h2 id="Intuition："><a href="#Intuition：" class="headerlink" title="Intuition："></a>Intuition：</h2><p>实践中最常用的模型其实是logistic regression，然后用这个去预估CTR，这个C不只是click这么狭义，也可以是任何动作。然后，工程师们把经理统统用在处理特征上面，发掘新的特征，特征组合，寻找新的特征离散方法。以上做法的好处：</p>
-<ol>
-<li>简单，复杂度低。</li>
-<li>特征工程可以投放主要的精力而且直接决定了指标的好坏。</li>
-<li>可以进行并行化工作，各自搞个自己特征挖掘。</li>
-<li>interpretability好。</li>
-</ol>
-<p>所以在深度学习之前，很多推荐系统都是使用“宽模型”（因为特征的扩充，让模型非常的宽）：</p>
-<blockquote>
-<p>“线性模型+特征工程”的特征海洋战术</p>
+        <h2 id="探索的问题："><a href="#探索的问题：" class="headerlink" title="探索的问题："></a>探索的问题：</h2><p>在搜索场景的顺序决策过程中，任意决策点的决策与后续所能得到的结果之间的关联性有多大？后期action取得reward之后应该进行多少回传来激励agent前期选择reward。（其实是思考这个交互过程有没有model成MDP的需要，或者这个到底是不是一个MDP）</p>
+<h3 id="搜索排序问题："><a href="#搜索排序问题：" class="headerlink" title="搜索排序问题："></a>搜索排序问题：</h3><p>用户query－－引擎推荐topK－－用户动作（reward）－－直到用户离开搜索引擎，在具体实验中，作者发现交易60%以上发生在pv小于6次中，所以减小pv发生次数（<strong>在小pv的前提下达成交易就应该对应更高的reward</strong>）从这个角度来看，传统方法虽然“greedy”但是有效也是可以解释的。</p>
+<h3 id="数据统计"><a href="#数据统计" class="headerlink" title="数据统计"></a>数据统计</h3><p>日志中无法获取“用户离开搜索引擎“事件，所以每个episode都是成功购买的。在pv中，episode越大，pv的转化率也就越低（越往后越低）。但是，用户在看过任意数量的商品展示页后都有可能进行交易，结束搜索。在这一段中，作者介绍了搜索排序问题的特点就是每一个state都存在直接结束的可能，与其他普通的迷宫问题不一样。其实这是所有使用discount factor的RL问题都能model出来的，discount factor最开始想要模拟的本质就是假设这个state结束之后agent就以一定的概率“死亡”（1-discount factor），那么我该如何调整我的策略以获得死之前的最大收益。在这个环境中，我们可以使用较小的discount factor。</p>
+<h3 id="Search-Session-MDP定义"><a href="#Search-Session-MDP定义" class="headerlink" title="Search Session MDP定义"></a>Search Session MDP定义</h3><p>q为query，D为和q相关的商品全集，K为一个页面展示的相关数量。 M＝&lt;T,H,S,A,R,P&gt;。T为最大决策步数，H为所有页面历史集合，S为状态空间包括持续会话成交与离开，A为动作空间，R是reward signal，P是transition probability。（具体的设定较为复杂，推荐读者看P27，这个定义给的非常清晰具体）</p>
+<h3 id="理论分析与实验分析："><a href="#理论分析与实验分析：" class="headerlink" title="理论分析与实验分析："></a>理论分析与实验分析：</h3><p>保证SSMDP满足Markov Property：当前状态发生的概率只取决于上一个状态。Discount factor：通过分析实验结果发现discount rate是1的时候比0提升6%以上，这也揭示了在这个model中考虑将来的reward能给自己带来更多的收益，符合delayed reward问题的定义，所以考虑总体延迟收益是有意义的。 但是最后作者只比较了1，0和0.9，最后发现0.9是最好的，其实应该多取几个discount factor做实验看看，我始终认为最好的结果应该比0.9再小一些，因为系统始终想以最少的action数量换来GMV，免得夜长梦多。</p>
+<h3 id="作者对project的思考："><a href="#作者对project的思考：" class="headerlink" title="作者对project的思考："></a>作者对project的思考：</h3><blockquote>
+<p>“⾄此，我们已经通过理论分析和实验证明了搜索排序问题是⼀个有限时间步的⽆折扣（Finite-HorizonUndiscounted）的顺序决策问题。”</p>
 </blockquote>
-<p>但是，深度学习以其优秀的auto feature engineering的能力与泛化能力完成了“end-to-end”的工作，使得项目实际落地难度大大降低，减少了机械性的特征工程工作。</p>
-<h2 id="Wide-amp-Deep-Learning："><a href="#Wide-amp-Deep-Learning：" class="headerlink" title="Wide&amp;Deep Learning："></a>Wide&amp;Deep Learning：</h2><h3 id="Deep："><a href="#Deep：" class="headerlink" title="Deep："></a>Deep：</h3><p>首先，对于类别特征，首先进行embedding，每个特征单独进行，一般生成一个32维度向量，连续型特征在做归一化。之后将embedding的feature与归一化后的连续特征进行拼接，此时维度为1000维度以上，输入到深度网络中，逐层递减维度。</p>
-<h3 id="Wide："><a href="#Wide：" class="headerlink" title="Wide："></a>Wide：</h3><p>Wide就是传统做法，通过特征交叉组合，直接输入到最后一层。</p>
-<h3 id="Wide-amp-Deep："><a href="#Wide-amp-Deep：" class="headerlink" title="Wide&amp;Deep："></a>Wide&amp;Deep：</h3><p>最后一层其实是一个Logistic Regression，融合Wide端与Deep端两个方向的feature，进行输出。在Inference的过程中，对于每个用户不同app的分数将进行多线程并行运算，最终进行排序。</p>
-<h3 id="DeepFM，PNN，FNN："><a href="#DeepFM，PNN，FNN：" class="headerlink" title="DeepFM，PNN，FNN："></a>DeepFM，PNN，FNN：</h3><p>这些都是在wide&amp;deep的基础上使用factorization machine的增强版本，DeepFM是两个模型使用相同的embedding后直接将FM与Deep进行融合。FNN是使用FM对网络进行pre-train，PNN是在embedding之后在embedding之间和第一层直接进行相互组合，也有很多变种。（<strong>不同的模型有不同的inductive bias，如果融合的太早那么双方的优势可能并不能完全的发挥，即便是借助了一方的idea，对方模型本身也可能是无法替代的，所以在资源重组的时候尽量保留模型完整可能是较好的选择</strong>）</p>
-<h3 id="Training："><a href="#Training：" class="headerlink" title="Training："></a>Training：</h3><p>这里需要注意的是，原paper使用的是joint training而不是ensemble，这样有利于降低wide和deep两部分分别的复杂程度。训练通过minimize sigmoid-cross-entropy进行，在得到gradient之后，wide部分使用FTRL进行优化，deep部分使用adagrad进行优化。</p>
-<h3 id="重点："><a href="#重点：" class="headerlink" title="重点："></a>重点：</h3><ol>
-<li>是一种工程方向上的结合，适用于稀疏向量特别多的场景。</li>
-<li>已经有开源实现了，可以很快落地。</li>
-<li>每天进行更新可以使用前一天的参数进行初始化，使用FTRL的wide端此时表现也很良好。</li>
-<li>先做embedding之后再用dense vector输入，要不然维度还是太大。</li>
-<li>多线程并行评分计算可以大大降低响应时间。</li>
-</ol>
-<h3 id="AUC有哪些不足之处："><a href="#AUC有哪些不足之处：" class="headerlink" title="AUC有哪些不足之处："></a>AUC有哪些不足之处：</h3><p>原paper使用了AUC作为指标，但是AUC在使用的过程中确实还是有一些不足之处：</p>
-<ol>
-<li>反映了整体性能，但反映不同点击率区间上的物品推荐效果欠佳（长尾）</li>
-<li>AUC反映了排序的能力，并没有准确体现精度。</li>
-</ol>
+<h3 id="我的观点："><a href="#我的观点：" class="headerlink" title="我的观点："></a>我的观点：</h3><p>我不是非常的认同这个结论，我认为是一个Finite-Horizon的顺序决策问题，但是是不是undiscounted不好说。因为discount之后本身的意义可能更符合这个应用场景。</p>
+<p>我认为得出这个结论是因为所使用的都是成功的sample，没有negative sample（这点在文章前面已经注明了）。所以RL agent在学习这个事情的时候会认为每个episode都会得到GMV，只是早晚的问题，所以在discount factor设置成0的时候RL agent就会彻底放弃在尽量少的action下拿到高GMV的想法，这与文章开头所对应的PV小转化率高的统计结论是不对应的。这其实也对应了在最后实验中，discount factor在0.9的时候确实比1的时候提升了,因为它确实model了系统想要尽快促成交易的行为。只有正样本可能还会造成较为严重的overfit，但是为什么没有表现出来呢？我猜测是因为作者本身在文中说了他们无法采集到负样本，所以其他模型在类似场景下也都是用类似数据训练出来的，那么在使用基本相同的数据的前提下，RL agent有了更好的表现也就解释的通了。</p>
+<p>我个人认为这个work还是非常有意义的，因为它从理论和实验验证了将搜索model成MDP并将GMV考虑成长远收益是有意义的，其在采样方面，参数设置和模型本身都有继续深入研究的价值与实际应用的价值。</p>
 
       
     </div>
@@ -474,11 +456,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/推荐/" rel="tag"># 推荐</a>
+            <a href="/tags/搜索排序/" rel="tag"># 搜索排序</a>
           
-            <a href="/tags/模型融合/" rel="tag"># 模型融合</a>
+            <a href="/tags/搜索策略/" rel="tag"># 搜索策略</a>
           
-            <a href="/tags/Wide-Deep-Learning/" rel="tag"># Wide&Deep Learning</a>
+            <a href="/tags/阿里强化学习/" rel="tag"># 阿里强化学习</a>
+          
+            <a href="/tags/强化学习/" rel="tag"># 强化学习</a>
+          
+            <a href="/tags/RL/" rel="tag"># RL</a>
           
         </div>
       
@@ -491,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/06/推荐系统：模型融合（blog总结）/" rel="next" title="推荐系统：模型融合第一部分（blog总结）">
-                <i class="fa fa-chevron-left"></i> 推荐系统：模型融合第一部分（blog总结）
+              <a href="/2019/03/11/阿里强化学习应用：强化学习实时搜索策略调控/" rel="next" title="阿里强化学习应用：基于强化学习的实时搜索策略调控">
+                <i class="fa fa-chevron-left"></i> 阿里强化学习应用：基于强化学习的实时搜索策略调控
               </a>
             
           </div>
@@ -500,10 +486,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/08/推荐系统：MAB部分（blog总结）/" rel="prev" title="推荐系统：MAB部分（blog总结）">
-                推荐系统：MAB部分（blog总结） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -675,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Intuition："><span class="nav-number">1.</span> <span class="nav-text">Intuition：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Wide-amp-Deep-Learning："><span class="nav-number">2.</span> <span class="nav-text">Wide&amp;Deep Learning：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep："><span class="nav-number">2.1.</span> <span class="nav-text">Deep：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wide："><span class="nav-number">2.2.</span> <span class="nav-text">Wide：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wide-amp-Deep："><span class="nav-number">2.3.</span> <span class="nav-text">Wide&amp;Deep：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DeepFM，PNN，FNN："><span class="nav-number">2.4.</span> <span class="nav-text">DeepFM，PNN，FNN：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training："><span class="nav-number">2.5.</span> <span class="nav-text">Training：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重点："><span class="nav-number">2.6.</span> <span class="nav-text">重点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AUC有哪些不足之处："><span class="nav-number">2.7.</span> <span class="nav-text">AUC有哪些不足之处：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#探索的问题："><span class="nav-number">1.</span> <span class="nav-text">探索的问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索排序问题："><span class="nav-number">1.1.</span> <span class="nav-text">搜索排序问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据统计"><span class="nav-number">1.2.</span> <span class="nav-text">数据统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Search-Session-MDP定义"><span class="nav-number">1.3.</span> <span class="nav-text">Search Session MDP定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理论分析与实验分析："><span class="nav-number">1.4.</span> <span class="nav-text">理论分析与实验分析：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作者对project的思考："><span class="nav-number">1.5.</span> <span class="nav-text">作者对project的思考：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我的观点："><span class="nav-number">1.6.</span> <span class="nav-text">我的观点：</span></a></li></ol></li></ol></div>
             
 
           </div>
