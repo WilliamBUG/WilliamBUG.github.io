@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="实际中的软件应用推荐：因为现在的数据量越来越大，可以使用Spark进行并行运算处理是未来的趋势，主要是如何将计算过程拆分成MapReduce的过程并使用Hadoop实现。 Collaborative Filtering：在系统度过了只能使用内容进行推荐的阶段之后，就有了用户的行为，那么物品的特征和用户的反馈就形成了一个关系矩阵。协同过滤就是将用户空缺的对物品的态度通过物以类聚的办法借鉴类似人的态度">
-<meta name="keywords" content="推荐,collaborative filtering">
+  <meta name="description" content="Youtube推荐：在各大推荐系统中，DL在各种2vec的embedding场景中有很大的应用，现在逐渐向prediction靠拢，解决实际落地问题（比如softmax计算量太大的问题）。 Youtube的推荐系统首先对user的embedded video vector取平均，生成一个观看向量：watch vector，之后对user的embedded serch tokens取平均生成一个se">
+<meta name="keywords" content="推荐,Deep Learning">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统：协同过滤第一部分（blog总结）">
-<meta property="og:url" content="http://yoursite.com/2019/02/15/推荐系统：协同过滤部分/index.html">
+<meta property="og:title" content="推荐系统：深度学习的两个应用（blog总结）">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/推荐系统：深度学习的两个应用/index.html">
 <meta property="og:site_name" content="龙渊">
-<meta property="og:description" content="实际中的软件应用推荐：因为现在的数据量越来越大，可以使用Spark进行并行运算处理是未来的趋势，主要是如何将计算过程拆分成MapReduce的过程并使用Hadoop实现。 Collaborative Filtering：在系统度过了只能使用内容进行推荐的阶段之后，就有了用户的行为，那么物品的特征和用户的反馈就形成了一个关系矩阵。协同过滤就是将用户空缺的对物品的态度通过物以类聚的办法借鉴类似人的态度">
+<meta property="og:description" content="Youtube推荐：在各大推荐系统中，DL在各种2vec的embedding场景中有很大的应用，现在逐渐向prediction靠拢，解决实际落地问题（比如softmax计算量太大的问题）。 Youtube的推荐系统首先对user的embedded video vector取平均，生成一个观看向量：watch vector，之后对user的embedded serch tokens取平均生成一个se">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-21T07:46:17.454Z">
+<meta property="og:updated_time" content="2019-03-13T06:26:07.846Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统：协同过滤第一部分（blog总结）">
-<meta name="twitter:description" content="实际中的软件应用推荐：因为现在的数据量越来越大，可以使用Spark进行并行运算处理是未来的趋势，主要是如何将计算过程拆分成MapReduce的过程并使用Hadoop实现。 Collaborative Filtering：在系统度过了只能使用内容进行推荐的阶段之后，就有了用户的行为，那么物品的特征和用户的反馈就形成了一个关系矩阵。协同过滤就是将用户空缺的对物品的态度通过物以类聚的办法借鉴类似人的态度">
+<meta name="twitter:title" content="推荐系统：深度学习的两个应用（blog总结）">
+<meta name="twitter:description" content="Youtube推荐：在各大推荐系统中，DL在各种2vec的embedding场景中有很大的应用，现在逐渐向prediction靠拢，解决实际落地问题（比如softmax计算量太大的问题）。 Youtube的推荐系统首先对user的embedded video vector取平均，生成一个观看向量：watch vector，之后对user的embedded serch tokens取平均生成一个se">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/15/推荐系统：协同过滤部分/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/13/推荐系统：深度学习的两个应用/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>推荐系统：协同过滤第一部分（blog总结） | 龙渊</title>
+  <title>推荐系统：深度学习的两个应用（blog总结） | 龙渊</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/15/推荐系统：协同过滤部分/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/推荐系统：深度学习的两个应用/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Tan">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">推荐系统：协同过滤第一部分（blog总结）
+          <h1 class="post-title" itemprop="name headline">推荐系统：深度学习的两个应用（blog总结）
 
               
             
@@ -366,24 +366,12 @@
                 
               
 
-              <time title="创建时间：2019-02-15 16:51:00" itemprop="dateCreated datePublished" datetime="2019-02-15T16:51:00+08:00">2019-02-15</time>
+              <time title="创建时间：2019-03-13 14:11:51 / 修改时间：14:26:07" itemprop="dateCreated datePublished" datetime="2019-03-13T14:11:51+08:00">2019-03-13</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-21 15:46:17" itemprop="dateModified" datetime="2019-02-21T15:46:17+08:00">2019-02-21</time>
               
             
           </span>
@@ -434,29 +422,18 @@
       
 
       
-        <h2 id="实际中的软件应用推荐："><a href="#实际中的软件应用推荐：" class="headerlink" title="实际中的软件应用推荐："></a>实际中的软件应用推荐：</h2><p>因为现在的数据量越来越大，可以使用Spark进行并行运算处理是未来的趋势，主要是如何将计算过程拆分成MapReduce的过程并使用Hadoop实现。</p>
-<h2 id="Collaborative-Filtering："><a href="#Collaborative-Filtering：" class="headerlink" title="Collaborative Filtering："></a>Collaborative Filtering：</h2><p>在系统度过了只能使用内容进行推荐的阶段之后，就有了用户的行为，那么物品的特征和用户的反馈就形成了一个关系矩阵。协同过滤就是将用户空缺的对物品的态度通过物以类聚的办法借鉴类似人的态度填充起来。这个算法通常包括：</p>
+        <h2 id="Youtube推荐："><a href="#Youtube推荐：" class="headerlink" title="Youtube推荐："></a>Youtube推荐：</h2><p>在各大推荐系统中，DL在各种2vec的embedding场景中有很大的应用，现在逐渐向prediction靠拢，解决实际落地问题（比如softmax计算量太大的问题）。</p>
+<p>Youtube的推荐系统首先对user的embedded video vector取平均，生成一个观看向量：watch vector，之后对user的embedded serch tokens取平均生成一个search vector，之后concatenate geographic embedding，年龄，性别等讯息组成一个高维度dense vector。之后输入到DL中，Relu层逐渐降维到softmax输出。需要注意的一点是，<strong>这里面的softmax不是我们普通作分类器对于自己输出的softmax 而是在输出之前要乘以video vector的softmax</strong>，这样我们就训练出了和对应video vector较为相似的vector了，之后再进行推荐的时候因为计算量的原因不再进行softmax计算而是使用approximate KNN等算法进行相似度召回即可。</p>
+<h2 id="Spotify-RNN歌单推荐："><a href="#Spotify-RNN歌单推荐：" class="headerlink" title="Spotify RNN歌单推荐："></a>Spotify RNN歌单推荐：</h2><p>动作的时间先后顺序也是有讯息的，这种讯息可以考虑加入到推荐系统中。原先的做法比如说是Time-SVD，但是这只是将时间考虑为单一的feature，并没有将时间作为主要处理对象。</p>
+<p>RNN将时间因素考虑为framework的基本，每次不只是考虑用户的feature，也会记录用户之前的行为对这次推荐的影响。</p>
+<p>在音乐推荐中，我们的目标是让用户们一直听下去。那么通常有三个做法：</p>
 <ol>
-<li>基于记忆的协同过滤（Memory-Based）</li>
-<li>基于模型的协同过滤（Model-Based）</li>
+<li>由expert手工编排，根据自己的经验。</li>
+<li>offline计算出推荐集合，按照分数逐一播出（传统推荐）</li>
+<li>使用RNN按时间顺序进行推荐。</li>
 </ol>
-<p>Memory-based主要包括user-based与item-based两种方法。user-based致力于找到和你臭味相投的人然后把那个人干的事推荐给你。item-based在与找到相似的物品，然后根据个人之前的动作将相似的物品推荐给你。其实在这些方法中最主要的工作是如何量化两者的相似性！</p>
-<h3 id="user-based的简易步骤："><a href="#user-based的简易步骤：" class="headerlink" title="user-based的简易步骤："></a>user-based的简易步骤：</h3><ol>
-<li>调取关系矩阵，观察用户的sparse vector</li>
-<li>计算用户之间的相似程度</li>
-<li>根据加权平均的分数排序（之后按集合中的用户行为对指定用户进行推荐）</li>
-</ol>
-<h3 id="user-based在实际操作中需要注意的事情："><a href="#user-based在实际操作中需要注意的事情：" class="headerlink" title="user-based在实际操作中需要注意的事情："></a>user-based在实际操作中需要注意的事情：</h3><ol>
-<li>构造矩阵：矩阵通常是sparse的，储存起来使用CSR或者COO的方式，然后通过python numpy读取。由于是很多计算框架的标准输入，所以要将以上数据转化为CSR或者COO。</li>
-<li>相似度计算：向量长度会很长，所以必须降低计算量，通过采样维度进行计算：DIMSUM。将循环运算尽量用向量计算代替。如果用户量十分大的时候，可以将相似度计算拆成MapReduce的计算，将原始矩阵Map成用户对，再reduce计算。如果相似度的计算任务不超百万，可以运用现成的软件如何KGraph或者GraphCHI。</li>
-<li>推荐计算：计算量大的话可以采取分布式计算，用MapReduce的办法。</li>
-<li>惩罚对热门商品的推荐，增加喜欢程度的衰减（计数时使用1/log（1+N））。</li>
-</ol>
-<h2 id="user-based算法的产出："><a href="#user-based算法的产出：" class="headerlink" title="user-based算法的产出："></a>user-based算法的产出：</h2><p>基于用户的协同过滤会输出两个东西：</p>
-<ol>
-<li>相似用户列表</li>
-<li>基于用户的推荐结果。<br>这种推荐可以向用户推荐用户，根据用户的聚类组建兴趣群体而非某些大V的影响。</li>
-</ol>
+<p>数据：歌单数据，每个都是时序输入的一部。使用LSTM或者GRU最后softmax输出选歌。</p>
+<p>（我个人感觉这个只是简单版本，没有结合用户的feature，然后还假设了客户是一定会喜欢下一首歌的）</p>
 
       
     </div>
@@ -482,7 +459,7 @@
           
             <a href="/tags/推荐/" rel="tag"># 推荐</a>
           
-            <a href="/tags/collaborative-filtering/" rel="tag"># collaborative filtering</a>
+            <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
           
         </div>
       
@@ -495,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/24/推荐系统：内容推荐部分知识点/" rel="next" title="推荐系统：内容推荐部分（bliog总结）">
-                <i class="fa fa-chevron-left"></i> 推荐系统：内容推荐部分（bliog总结）
+              <a href="/2019/03/13/阿里强化学习应用：多智能体强化学习的多场景联合优化/" rel="next" title="阿里强化学习应用：多智能体强化学习的多场景联合优化">
+                <i class="fa fa-chevron-left"></i> 阿里强化学习应用：多智能体强化学习的多场景联合优化
               </a>
             
           </div>
@@ -504,10 +481,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/15/推荐系统：协同过滤第二部分/" rel="prev" title="推荐系统：协同过滤第二部分（blog总结）">
-                推荐系统：协同过滤第二部分（blog总结） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -688,7 +661,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实际中的软件应用推荐："><span class="nav-number">1.</span> <span class="nav-text">实际中的软件应用推荐：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collaborative-Filtering："><span class="nav-number">2.</span> <span class="nav-text">Collaborative Filtering：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#user-based的简易步骤："><span class="nav-number">2.1.</span> <span class="nav-text">user-based的简易步骤：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#user-based在实际操作中需要注意的事情："><span class="nav-number">2.2.</span> <span class="nav-text">user-based在实际操作中需要注意的事情：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#user-based算法的产出："><span class="nav-number">3.</span> <span class="nav-text">user-based算法的产出：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Youtube推荐："><span class="nav-number">1.</span> <span class="nav-text">Youtube推荐：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spotify-RNN歌单推荐："><span class="nav-number">2.</span> <span class="nav-text">Spotify RNN歌单推荐：</span></a></li></ol></div>
             
 
           </div>
@@ -839,7 +812,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/02/15/推荐系统：协同过滤部分/'
+    refer: '2019/03/13/推荐系统：深度学习的两个应用/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
