@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="用户画像User profile 是推荐系统常用概念，所有推荐系统的目的都是在user和item间建立连接。它通常是用户向量化，这是推荐过程中的副产品，不是最终目的。推荐系统需要降低计算量，所以需要召回和排序两个阶段。用户向量化需要考虑维度和量化两方面，标签化只是向量化的一种，画像并不需要被人理解。 从文本中构建用户画像这项工作的主要目的是从大量文本中挖掘User Profile，这个过程大致上分">
-<meta name="keywords" content="推荐,内容推荐,content-based">
+  <meta name="description" content="淘宝锦囊：淘宝锦囊用于粗略查找下的细分查找，在用户每次query之后的SRP中提供细分词汇，用户点击词汇，那么系统将会结合词汇与用户的query结合再次进行更精准的推荐。 由于如果将锦囊考虑为离散动作的话动作量十分巨大，可以初步考虑将动作id进行embedding再进行学习，但环境复杂度很高，不同群体的数量不一样也是训练的难点。 Reward建模：两个reward function,分别对应人的点">
+<meta name="keywords" content="搜索策略,阿里强化学习,强化学习,DRL,DQN">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统：内容推荐部分（bliog总结）">
-<meta property="og:url" content="http://yoursite.com/2019/01/24/推荐系统：内容推荐部分知识点/index.html">
+<meta property="og:title" content="阿里强化学习应用：淘宝锦囊">
+<meta property="og:url" content="http://yoursite.com/2019/03/14/阿里强化学习应用：淘宝锦囊/index.html">
 <meta property="og:site_name" content="龙渊">
-<meta property="og:description" content="用户画像User profile 是推荐系统常用概念，所有推荐系统的目的都是在user和item间建立连接。它通常是用户向量化，这是推荐过程中的副产品，不是最终目的。推荐系统需要降低计算量，所以需要召回和排序两个阶段。用户向量化需要考虑维度和量化两方面，标签化只是向量化的一种，画像并不需要被人理解。 从文本中构建用户画像这项工作的主要目的是从大量文本中挖掘User Profile，这个过程大致上分">
+<meta property="og:description" content="淘宝锦囊：淘宝锦囊用于粗略查找下的细分查找，在用户每次query之后的SRP中提供细分词汇，用户点击词汇，那么系统将会结合词汇与用户的query结合再次进行更精准的推荐。 由于如果将锦囊考虑为离散动作的话动作量十分巨大，可以初步考虑将动作id进行embedding再进行学习，但环境复杂度很高，不同群体的数量不一样也是训练的难点。 Reward建模：两个reward function,分别对应人的点">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-15T09:48:19.561Z">
+<meta property="og:updated_time" content="2019-03-14T09:09:48.728Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统：内容推荐部分（bliog总结）">
-<meta name="twitter:description" content="用户画像User profile 是推荐系统常用概念，所有推荐系统的目的都是在user和item间建立连接。它通常是用户向量化，这是推荐过程中的副产品，不是最终目的。推荐系统需要降低计算量，所以需要召回和排序两个阶段。用户向量化需要考虑维度和量化两方面，标签化只是向量化的一种，画像并不需要被人理解。 从文本中构建用户画像这项工作的主要目的是从大量文本中挖掘User Profile，这个过程大致上分">
+<meta name="twitter:title" content="阿里强化学习应用：淘宝锦囊">
+<meta name="twitter:description" content="淘宝锦囊：淘宝锦囊用于粗略查找下的细分查找，在用户每次query之后的SRP中提供细分词汇，用户点击词汇，那么系统将会结合词汇与用户的query结合再次进行更精准的推荐。 由于如果将锦囊考虑为离散动作的话动作量十分巨大，可以初步考虑将动作id进行embedding再进行学习，但环境复杂度很高，不同群体的数量不一样也是训练的难点。 Reward建模：两个reward function,分别对应人的点">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/24/推荐系统：内容推荐部分知识点/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/14/阿里强化学习应用：淘宝锦囊/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>推荐系统：内容推荐部分（bliog总结） | 龙渊</title>
+  <title>阿里强化学习应用：淘宝锦囊 | 龙渊</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/24/推荐系统：内容推荐部分知识点/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/阿里强化学习应用：淘宝锦囊/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Tan">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">推荐系统：内容推荐部分（bliog总结）
+          <h1 class="post-title" itemprop="name headline">阿里强化学习应用：淘宝锦囊
 
               
             
@@ -366,24 +366,12 @@
                 
               
 
-              <time title="创建时间：2019-01-24 22:28:31" itemprop="dateCreated datePublished" datetime="2019-01-24T22:28:31+08:00">2019-01-24</time>
+              <time title="创建时间：2019-03-14 16:58:33 / 修改时间：17:09:48" itemprop="dateCreated datePublished" datetime="2019-03-14T16:58:33+08:00">2019-03-14</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-02-15 17:48:19" itemprop="dateModified" datetime="2019-02-15T17:48:19+08:00">2019-02-15</time>
               
             
           </span>
@@ -400,7 +388,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/推荐系统/" itemprop="url" rel="index"><span itemprop="name">推荐系统</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/阿里强化学习/" itemprop="url" rel="index"><span itemprop="name">阿里强化学习</span></a></span>
 
                 
                 
@@ -434,49 +422,11 @@
       
 
       
-        <h2 id="用户画像"><a href="#用户画像" class="headerlink" title="用户画像"></a>用户画像</h2><p>User profile 是推荐系统常用概念，所有推荐系统的目的都是在user和item间建立连接。它通常是用户向量化，这是推荐过程中的副产品，不是最终目的。推荐系统需要降低计算量，所以需要召回和排序两个阶段。用户向量化需要考虑维度和量化两方面，标签化只是向量化的一种，画像并不需要被人理解。</p>
-<h2 id="从文本中构建用户画像"><a href="#从文本中构建用户画像" class="headerlink" title="从文本中构建用户画像"></a>从文本中构建用户画像</h2><p>这项工作的主要目的是从大量文本中挖掘User Profile，这个过程大致上分为两步：</p>
-<ol>
-<li>将所有非结构化的文本结构化，去粗取精，保留关键讯息。</li>
-<li>根据用户行为数据将物品的结构化给用户，与用户的结构化合并。</li>
-</ol>
-<p>如何处理文本端的讯息呢：</p>
-<ol>
-<li>关键词提取：TextRank 和 TF-IDF。</li>
-<li>实体识别：运用具于词典的方法结合CRF模型。</li>
-<li>内容分类。</li>
-<li>文本的无监督学习，按照编号分类。</li>
-<li>主题模型：运用主题向量进行主题分布的预测（LDA）。</li>
-<li>embedding。</li>
-</ol>
-<h3 id="TF-IDF"><a href="#TF-IDF" class="headerlink" title="TF-IDF"></a>TF-IDF</h3><p>TF：term frequency，IDF：inverse document frequency<br>在文档中重复出现的词很重要，但是在所有文档中都重复出现的词不重要。IDF = log（N/（n+1））。 N是文档总数，n是包含特定词的文本。IDF是已经知道的，计算好的。TF乘以IDF就得到了每个词的权重，我们就可以选择top K了。</p>
-<h3 id="TextRank"><a href="#TextRank" class="headerlink" title="TextRank"></a>TextRank</h3><p>根据窗口内词和词的共同出现的关系分配词的权重，直到权重不在分配。共同出现的词就会互相支持成为关键词。</p>
-<h3 id="内容分类"><a href="#内容分类" class="headerlink" title="内容分类"></a>内容分类</h3><p>长文本进行内容分类较为容易，短文本分类常用SVM，工具上用Facebook开源的FastText。</p>
-<h3 id="实体识别"><a href="#实体识别" class="headerlink" title="实体识别"></a>实体识别</h3><p>Named-Entity Recognition，序列标注问题，和分词与词性标注属于同一类问题，这一类问题通常使用HMM 和 CRF解决。具体工具使用spaCy。</p>
-<h3 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h3><p>通常被主题模型代替，clustering的经典算法LDA（linear discriminant analysis，不是latent dirichlet allocation），通常使用LDA因为本身就有classification的过程，按照指定的类数目进行划分。 LDA的训练工具包括PLDA和Gensim。</p>
-<h3 id="embedding"><a href="#embedding" class="headerlink" title="embedding"></a>embedding</h3><p>大多使用经典word2vec。</p>
-<h2 id="标签选择"><a href="#标签选择" class="headerlink" title="标签选择"></a>标签选择</h2><p>解决如何将物品结构化的讯息给用户。逻辑是通过用户的标注找到真正让用户感兴趣的特征。常用方法为CHI卡方检验和IG信息增益。中心思想是提取同一个类别中的内容的特征并认为是这个特征导致了用户的分类行为（点击或者不点击）。CHI卡方检验：reject  hypothesis that the component and class are independent。</p>
-<p>信息增益：information Gain，各个类别的文本数量差不多的时候信息熵较大，少数类别文本数量较多的时候信息熵小。做法分为：统计全文信息熵，计算每个词的条件熵，两者相减就是信息增益。 具体算法使用决策树。卡方检验针对的是特定词，而信息增益是全局离线计算。</p>
-<h2 id="内容推荐的重点"><a href="#内容推荐的重点" class="headerlink" title="内容推荐的重点"></a>内容推荐的重点</h2><p>标签其实只能帮助推荐系统一部分，关注标签的多少其实意义不是很大，内容推荐至关重要，这种情况在冷启动的条件下是非常明显的。</p>
-<p>内容推荐应该做成一种检索系统，复杂的推荐系统一般都是从最开始的内容推荐逐渐发展起来的。</p>
-<p>内容推荐中的最容易获得，这也是在新品登陆没有标签讯息和用户冷启动时不知道如何推荐时的最好做法，做好内容需要以下四点：</p>
-<pre><code>1. 抓：持续抓取数据来丰富自己的内容，增加容量，增加dimension。
-2. 洗：抓取的内容应该过滤掉自己可能不需要的部分和不涉及的敏感内容等。
-3. 挖：对自己的内容进行更加深入地挖掘和理解。
-4. 算：和用户的属性进行匹配从而计算更加合理的相关性。
-</code></pre><p>抓数据肯定是有专门团队在做，大规模使用爬虫技术。抓来的数据需要清理，包括去除重复，垃圾内容，色情，政治等，这个运用边角算法。</p>
-<p>基于内容的推荐，主要是对内容的分析和挖掘，随着内容分析的深入，系统对于内容的理解也就越加的精细，推荐的转化率就会高，内容分析有两个重要产出：</p>
-<ol>
-<li>结构化内容库</li>
-<li>内容分析模型</li>
-</ol>
-<p>结构化内容库主要用于给用户构建user profile。内容分析模型作用是将新进的数据进行处理之后分配出去。通过1我们可以得到代表user的sparse vector，通过2对内容的处理，我们可以得到代表内容的sparse vector。两个vector 的cosine similarity作为weights对检索到内容从高到低rank。如果内容分析做的很好，那么结果也不错且可解释性强不少。其次可以用信息检索中的算法比如BM25F算法，开源引擎已经实现了Lucene。如果为了针对某一个指标进行优化的话，可以训练logistic regression和GBDT梯度提升树两者结合，用于预估用户点击或者不点击的概率</p>
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><ol>
-<li>内容含有很多的data应该好好利用。</li>
-<li>产品冷启动只能人工标签或者内容推荐，因为没有用户行为</li>
-<li>新的物品要推荐，首选内容推荐</li>
-<li>所以文本化内容的推荐思想是先将内容进行结构化处理，然后将用户动作的结构化内容作为user profile的一部分。</li>
-</ol>
+        <h2 id="淘宝锦囊："><a href="#淘宝锦囊：" class="headerlink" title="淘宝锦囊："></a>淘宝锦囊：</h2><p>淘宝锦囊用于粗略查找下的细分查找，在用户每次query之后的SRP中提供细分词汇，用户点击词汇，那么系统将会结合词汇与用户的query结合再次进行更精准的推荐。 由于如果将锦囊考虑为离散动作的话动作量十分巨大，可以初步考虑将动作id进行embedding再进行学习，但环境复杂度很高，不同群体的数量不一样也是训练的难点。</p>
+<h2 id="Reward建模："><a href="#Reward建模：" class="headerlink" title="Reward建模："></a>Reward建模：</h2><p>两个reward function,分别对应人的点击的时间和使用频率，其中锦囊在pv开始就被点击是最好的情况，越往后贡献越小（对应了应该尽快促成交易），不使用锦囊的人使用了锦囊应该得到更大的奖励。</p>
+<h2 id="算法模型："><a href="#算法模型：" class="headerlink" title="算法模型："></a>算法模型：</h2><p>主体框架使用double DQN（改变传统的结构输入S，A来获得最后的Q-value（但是我比较怀疑action和state都作为输入generalization真的会保证么？作者指出因为存在两万个action所以如果按照原结构训练效果更差，可能只要输入维度够大，数据够多，embedding之后是可以保证的把）。在offline learning的时候用,解决用户分布差异过大的问题，这是因为受到活动日期等影响，不同群体所占比例不断地发生变化使得agent习得的policy不稳定，使用stratified sampling replay代替replay memory。再使用benchmark Elimination来消除用户量随时间变化后reward的增减不是由agent的action得出的问题，这个是使用另一个模型通过CTR预估的方法predict特定用户群的动作做为benchmark，之后使用从reward function中计算的reward减去benchmark得到训练所使用的reward signal。</p>
+<p>##我的想法：</p>
+<p>这是非常注重工程实际落地的一个work，简单直接，每一个改进都是具有针对性的。作者在最后说由于他们无法获得全面的用户feature所以没有办法更精确的进行推荐，这对应了POMDP问题，DRL在一定程度上可以缓解这个问题。其实，相比之下，我认为更应该好好应对的其实是2万个action的问题，有没有必要model成这个么多个action，可不可以做成hierarchy的来提升inference的表现，有没有可能在inference过程中使用更快的近似方法，都是很好的实践方向。</p>
 
       
     </div>
@@ -500,11 +450,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/推荐/" rel="tag"># 推荐</a>
+            <a href="/tags/搜索策略/" rel="tag"># 搜索策略</a>
           
-            <a href="/tags/内容推荐/" rel="tag"># 内容推荐</a>
+            <a href="/tags/阿里强化学习/" rel="tag"># 阿里强化学习</a>
           
-            <a href="/tags/content-based/" rel="tag"># content-based</a>
+            <a href="/tags/强化学习/" rel="tag"># 强化学习</a>
+          
+            <a href="/tags/DRL/" rel="tag"># DRL</a>
+          
+            <a href="/tags/DQN/" rel="tag"># DQN</a>
           
         </div>
       
@@ -517,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/15/推荐系统开篇/" rel="next" title="推荐系统开篇（blog总结）">
-                <i class="fa fa-chevron-left"></i> 推荐系统开篇（blog总结）
+              <a href="/2019/03/14/推荐系统：其他方法之排行榜（blog总结）/" rel="next" title="推荐系统：其他方法之排行榜（blog总结）">
+                <i class="fa fa-chevron-left"></i> 推荐系统：其他方法之排行榜（blog总结）
               </a>
             
           </div>
@@ -526,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/15/推荐系统：协同过滤部分/" rel="prev" title="推荐系统：协同过滤第一部分（blog总结）">
-                推荐系统：协同过滤第一部分（blog总结） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -716,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#用户画像"><span class="nav-number">1.</span> <span class="nav-text">用户画像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从文本中构建用户画像"><span class="nav-number">2.</span> <span class="nav-text">从文本中构建用户画像</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TF-IDF"><span class="nav-number">2.1.</span> <span class="nav-text">TF-IDF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TextRank"><span class="nav-number">2.2.</span> <span class="nav-text">TextRank</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内容分类"><span class="nav-number">2.3.</span> <span class="nav-text">内容分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实体识别"><span class="nav-number">2.4.</span> <span class="nav-text">实体识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#聚类"><span class="nav-number">2.5.</span> <span class="nav-text">聚类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#embedding"><span class="nav-number">2.6.</span> <span class="nav-text">embedding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签选择"><span class="nav-number">3.</span> <span class="nav-text">标签选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容推荐的重点"><span class="nav-number">4.</span> <span class="nav-text">内容推荐的重点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结："><span class="nav-number">5.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#淘宝锦囊："><span class="nav-number">1.</span> <span class="nav-text">淘宝锦囊：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reward建模："><span class="nav-number">2.</span> <span class="nav-text">Reward建模：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法模型："><span class="nav-number">3.</span> <span class="nav-text">算法模型：</span></a></li></ol></div>
             
 
           </div>
@@ -867,7 +817,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/01/24/推荐系统：内容推荐部分知识点/'
+    refer: '2019/03/14/阿里强化学习应用：淘宝锦囊/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
@@ -877,7 +827,69 @@
     j.async = true;
     e.parentNode.insertBefore(j, e);
   })(document, 'script');
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -896,32 +908,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-
+    
   
 
 
