@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="写在内容之前的个人看法：这个是一个比较传统的RL应用，并没有使用DL，只是使用了线性拟合就提升了效果，作者在章节最后也提到将DPG升级成了DDPG获得了更好的效果，更加验证了RL在搜索排序的有效性和使用DL在这个场景下作为approximator的可行性。我一直认为在推荐领域，RL有效的前提是客户与系统交互的持续性，因为在这种条件下，追求动作序列所带来最大收益的效果最明显。所以在买了又买，看了又看">
-<meta name="keywords" content="搜索排序,搜索策略,阿里强化学习,强化学习,RL">
+  <meta name="description" content="为什么要使用排行榜：所有的智能框架都要以数据充足为前提，在数据不断涌入的过程中更新自己的策略。但是，推荐系统最主要的问题，其实是冷启动的问题，由于用户首次接触产品，如果产品的初印象不好，冷启动不好，那么很有可能用户就会直接流失，所以智能算法主要是为了将老用户留住，而传统算法，更在意在一开始就给用户robust的推荐，保证开始阶段不流失。排行榜，是新用户使用时可以最先尝试推荐给用户的产品，也可以作为">
+<meta name="keywords" content="推荐,排行榜">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里强化学习应用：基于强化学习的实时搜索策略调控">
-<meta property="og:url" content="http://yoursite.com/2019/03/11/阿里强化学习应用：强化学习实时搜索策略调控/index.html">
+<meta property="og:title" content="推荐系统：其他方法之排行榜（blog总结）">
+<meta property="og:url" content="http://yoursite.com/2019/03/14/推荐系统：其他方法之排行榜（blog总结）/index.html">
 <meta property="og:site_name" content="龙渊">
-<meta property="og:description" content="写在内容之前的个人看法：这个是一个比较传统的RL应用，并没有使用DL，只是使用了线性拟合就提升了效果，作者在章节最后也提到将DPG升级成了DDPG获得了更好的效果，更加验证了RL在搜索排序的有效性和使用DL在这个场景下作为approximator的可行性。我一直认为在推荐领域，RL有效的前提是客户与系统交互的持续性，因为在这种条件下，追求动作序列所带来最大收益的效果最明显。所以在买了又买，看了又看">
+<meta property="og:description" content="为什么要使用排行榜：所有的智能框架都要以数据充足为前提，在数据不断涌入的过程中更新自己的策略。但是，推荐系统最主要的问题，其实是冷启动的问题，由于用户首次接触产品，如果产品的初印象不好，冷启动不好，那么很有可能用户就会直接流失，所以智能算法主要是为了将老用户留住，而传统算法，更在意在一开始就给用户robust的推荐，保证开始阶段不流失。排行榜，是新用户使用时可以最先尝试推荐给用户的产品，也可以作为">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-11T08:50:56.381Z">
+<meta property="og:updated_time" content="2019-03-14T07:10:47.643Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里强化学习应用：基于强化学习的实时搜索策略调控">
-<meta name="twitter:description" content="写在内容之前的个人看法：这个是一个比较传统的RL应用，并没有使用DL，只是使用了线性拟合就提升了效果，作者在章节最后也提到将DPG升级成了DDPG获得了更好的效果，更加验证了RL在搜索排序的有效性和使用DL在这个场景下作为approximator的可行性。我一直认为在推荐领域，RL有效的前提是客户与系统交互的持续性，因为在这种条件下，追求动作序列所带来最大收益的效果最明显。所以在买了又买，看了又看">
+<meta name="twitter:title" content="推荐系统：其他方法之排行榜（blog总结）">
+<meta name="twitter:description" content="为什么要使用排行榜：所有的智能框架都要以数据充足为前提，在数据不断涌入的过程中更新自己的策略。但是，推荐系统最主要的问题，其实是冷启动的问题，由于用户首次接触产品，如果产品的初印象不好，冷启动不好，那么很有可能用户就会直接流失，所以智能算法主要是为了将老用户留住，而传统算法，更在意在一开始就给用户robust的推荐，保证开始阶段不流失。排行榜，是新用户使用时可以最先尝试推荐给用户的产品，也可以作为">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/11/阿里强化学习应用：强化学习实时搜索策略调控/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/14/推荐系统：其他方法之排行榜（blog总结）/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>阿里强化学习应用：基于强化学习的实时搜索策略调控 | 龙渊</title>
+  <title>推荐系统：其他方法之排行榜（blog总结） | 龙渊</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/阿里强化学习应用：强化学习实时搜索策略调控/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/推荐系统：其他方法之排行榜（blog总结）/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Tan">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">阿里强化学习应用：基于强化学习的实时搜索策略调控
+          <h1 class="post-title" itemprop="name headline">推荐系统：其他方法之排行榜（blog总结）
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-03-11 16:33:38 / 修改时间：16:50:56" itemprop="dateCreated datePublished" datetime="2019-03-11T16:33:38+08:00">2019-03-11</time>
+              <time title="创建时间：2019-03-14 14:07:41 / 修改时间：15:10:47" itemprop="dateCreated datePublished" datetime="2019-03-14T14:07:41+08:00">2019-03-14</time>
             
 
             
@@ -388,7 +388,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/阿里强化学习/" itemprop="url" rel="index"><span itemprop="name">阿里强化学习</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/推荐系统/" itemprop="url" rel="index"><span itemprop="name">推荐系统</span></a></span>
 
                 
                 
@@ -422,16 +422,33 @@
       
 
       
-        <h2 id="写在内容之前的个人看法："><a href="#写在内容之前的个人看法：" class="headerlink" title="写在内容之前的个人看法："></a>写在内容之前的个人看法：</h2><p>这个是一个比较传统的RL应用，并没有使用DL，只是使用了线性拟合就提升了效果，作者在章节最后也提到将DPG升级成了DDPG获得了更好的效果，更加验证了RL在搜索排序的有效性和使用DL在这个场景下作为approximator的可行性。我一直认为在推荐领域，RL有效的前提是客户与系统交互的持续性，因为在这种条件下，追求动作序列所带来最大收益的效果最明显。所以在买了又买，看了又看，Steam探索兴趣序列等类似场景有非常大的用武之地。在其他场景，针对特定Reward指标进行优化，进行exploration也是RL所具有的优势。</p>
-<h2 id="Model的建立："><a href="#Model的建立：" class="headerlink" title="Model的建立："></a>Model的建立：</h2><h3 id="Model与MDP："><a href="#Model与MDP：" class="headerlink" title="Model与MDP："></a>Model与MDP：</h3><p>对用户搜索进行特定排序响应，引导搜索成交量提升。Contextual Learnjng to Rank是传统算法，但是不考虑sequential decision making。但是动态的交互过程其实是广泛存在的，MDP的假设也应该是成立的，所以使用DPG对这个过程进行建模和求解。</p>
-<p>系统是agent，客户是environment，客户的动作就是reward，action就是向客户推荐的权重，state包含了用户的历史讯息，包括点击购买和用户本身的feature包括购买力和喜欢的商品类型。（The action is a vector of the weights to calculate the final score. The weights will perform element-wise multiplication with the features weights of the products. After calculating the final score, the product will be ranked by the scores. ）</p>
-<h3 id="Reward-shaping："><a href="#Reward-shaping：" class="headerlink" title="Reward shaping："></a>Reward shaping：</h3><p>The reward is reshaped to add potential function which calculates the maximum likelihood of CTR and action. 单纯的CTR+GMV区分度仍然不够！这个potential funciton是从LTR借鉴过来的，本质上是一种启发式，但是，因为在计算的时候是使用了actor的权重乘以物品本身的feature来计算Likelihood，所以不在满足独立同分布条件。我个人认为这个优化特别像path consistency learning或者SAC中，使用entropy项在reward中，起到了一定的regularization的作用，同时鼓励了exploration，让agent有更强的泛化性，最后结果也更加准确且有区分度。（multi-agent和multi-goal都可以增加泛化能力，这也是未来DRL的研究方向）。</p>
-<h3 id="作者对project的思考："><a href="#作者对project的思考：" class="headerlink" title="作者对project的思考："></a>作者对project的思考：</h3><h4 id="作者总结："><a href="#作者总结：" class="headerlink" title="作者总结："></a>作者总结：</h4><p>“状态表示的assumption可能是错的，因为用户的历史行为具有较强的随机性，具体表现为有时候什么都想点进去看看，所以这个对state的表示可能是错误的。所以可以使用DL，加更多的特征然后依赖DL的auto feature engineering的能力进一步提升性能”</p>
-<h4 id="我的观点："><a href="#我的观点：" class="headerlink" title="我的观点："></a>我的观点：</h4><p>是这样的，所以要使用DDPG而不是DPG，而且这个还涉及到了POMDP的适应性问题，所以还是应该在未来的发展中使用DL，但是问题还是在于offline学习之后在线上fin-tune会出现不稳定的这个问题，这个阶段会带来实打实的流量损失，而且使用了DL更不能保证收敛，所以必须把系统做的robust一些才行。</p>
-<h4 id="作者总结：-1"><a href="#作者总结：-1" class="headerlink" title="作者总结："></a>作者总结：</h4><p>“使用了Reward shapping是启发式的，应该有其他方法能够学到更好的reward，比如Inverse Reinforcement Learning，但是对于目前的境地，并没有专家函数供我们使用。”</p>
-<h4 id="我的观点：-1"><a href="#我的观点：-1" class="headerlink" title="我的观点："></a>我的观点：</h4><p>是这样的，但是reward engineering本身就是RL算法所要做的事，尝试多种reward定义方法可以增加insight，对之后的项目发展其实是有好处的。传统的IRL方法都是要在每一次迭代完全求解一次MDP，并不适用于目前维度大，空间连续的推荐问题，最新的Generative adversarial immitation learning表现也并不是很难稳定。当然，没有合适的expert仍然是最大问题。</p>
-<h4 id="作者总结：-2"><a href="#作者总结：-2" class="headerlink" title="作者总结："></a>作者总结：</h4><p>“用户应该模拟成Agent，最后的结构应该是一个multi-agent的问题”</p>
-<h4 id="我的观点：-2"><a href="#我的观点：-2" class="headerlink" title="我的观点："></a>我的观点：</h4><p>见仁见智，这个问题在probabilistic robotics中也有研究，因为人的特殊属性，如何model人本身的行为就是问题所在，但是我倾向于认为这个是POMDP，跟multi-agent所涉及到的问题关系不是特别强烈。</p>
+        <h2 id="为什么要使用排行榜："><a href="#为什么要使用排行榜：" class="headerlink" title="为什么要使用排行榜："></a>为什么要使用排行榜：</h2><p>所有的智能框架都要以数据充足为前提，在数据不断涌入的过程中更新自己的策略。但是，推荐系统最主要的问题，其实是冷启动的问题，由于用户首次接触产品，如果产品的初印象不好，冷启动不好，那么很有可能用户就会直接流失，所以智能算法主要是为了将老用户留住，而传统算法，更在意在一开始就给用户robust的推荐，保证开始阶段不流失。排行榜，是新用户使用时可以最先尝试推荐给用户的产品，也可以作为一种兜底策略，当推荐系统出现问题时使用排行榜处理（相似的如果系统宕机其实可以保留最原始的logistic regression进行兜底）。</p>
+<h2 id="经典的排行榜算法："><a href="#经典的排行榜算法：" class="headerlink" title="经典的排行榜算法："></a>经典的排行榜算法：</h2><p>最简单的应用就是按一定指标排序，销量，点赞等等。这种做法容易出现问题，比如刷榜，马太效应使得破了记录的产品一直在榜中，同时由于马太效应，使得排行榜没有时效性。</p>
+<h3 id="考虑热度随时间衰减："><a href="#考虑热度随时间衰减：" class="headerlink" title="考虑热度随时间衰减："></a>考虑热度随时间衰减：</h3><p>这样的话，我们可以考虑discount之前的影响，让影响随着时间减少：</p>
+<h4 id="模拟重力："><a href="#模拟重力：" class="headerlink" title="模拟重力："></a>模拟重力：</h4><blockquote>
+<p>$$score = (P-1)/(T+2)^G$$</p>
+</blockquote>
+<p>这样，通过调控$G$就可以达到调节衰减的目的了，$T$为时间，$P$为投票数。</p>
+<h4 id="模拟冷却："><a href="#模拟冷却：" class="headerlink" title="模拟冷却："></a>模拟冷却：</h4><blockquote>
+<p>$$T(t)=H+Ce^{-\alpha t}$$</p>
+</blockquote>
+<p>$H$为环境热度，$C$为净票数，$\alpha$为冷却系数，$t$为物品存在时间。<br>其中$\alpha$可以直观地通过每天热度保证投票增长多少而不变的情况进行计算：</p>
+<blockquote>
+<p>$$Ce^{-\alpha t}=(C+A)e^{-\alpha(t+B)}$$</p>
+</blockquote>
+<p>这样就保证了如果时间增加了$B$，评价指标增加了$A$，那么热度也不会发生改变。同时也可以根据具体应用场景设计自己的衰减函数。</p>
+<h3 id="考虑综合投票："><a href="#考虑综合投票：" class="headerlink" title="考虑综合投票："></a>考虑综合投票：</h3><p>综合投票包括弃权，赞成，反对，点击各种动作，如果将这届融合在一起设计出来一个score是一个问题。下面介绍Stack Overflow排列分数的思想：</p>
+<blockquote>
+<p>$$ score = (C_0logQview+C_1QanwserQscore+\sum_i Ascore_i)/(C_2Qage+C_3Qupdated+1)^{C_4} $$</p>
+</blockquote>
+<p>通过设置参数可以调整各方面比重，其中$Qview$为浏览数，$Qanwser$为回答数，$Qscore$为问题回答分数（赞同-反对），$Ascore$为当前问题下回答的分数，$Qage$问题提出时间，$Qupdated$为问题更新时间。</p>
+<h3 id="考虑好评比例和平均度："><a href="#考虑好评比例和平均度：" class="headerlink" title="考虑好评比例和平均度："></a>考虑好评比例和平均度：</h3><p>这里涉及的问题是如何平衡样本数量来计算出来足够好的置信区间，少量样本都给出高分的行为可能并不是那么的可信。在实际应用中我们通常可以使用 <strong>威尔逊区间</strong> 来计算。</p>
+<p>或者我们也可以考虑使用贝叶斯平均，考虑到样本数量大小对物品本身质量的影响，将平均分数和平均样本数量看成prior：</p>
+<blockquote>
+<p>$$score = (vR+mC)/(v+m)$$</p>
+</blockquote>
+<p>其中$R$为指定物品平均分，$v$为评价人数，$m$为全局平局打分人数，$C$为全局平均分。</p>
+<p>包络以上三种三种设计思路，不同场景应该根据自己场景的特点设计独立的评分公式。</p>
 
       
     </div>
@@ -455,15 +472,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/搜索排序/" rel="tag"># 搜索排序</a>
+            <a href="/tags/推荐/" rel="tag"># 推荐</a>
           
-            <a href="/tags/搜索策略/" rel="tag"># 搜索策略</a>
-          
-            <a href="/tags/阿里强化学习/" rel="tag"># 阿里强化学习</a>
-          
-            <a href="/tags/强化学习/" rel="tag"># 强化学习</a>
-          
-            <a href="/tags/RL/" rel="tag"># RL</a>
+            <a href="/tags/排行榜/" rel="tag"># 排行榜</a>
           
         </div>
       
@@ -476,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/08/推荐系统：MAB部分（blog总结）/" rel="next" title="推荐系统：MAB部分（blog总结）">
-                <i class="fa fa-chevron-left"></i> 推荐系统：MAB部分（blog总结）
+              <a href="/2019/03/13/推荐系统：深度学习的两个应用/" rel="next" title="推荐系统：深度学习的两个应用（blog总结）">
+                <i class="fa fa-chevron-left"></i> 推荐系统：深度学习的两个应用（blog总结）
               </a>
             
           </div>
@@ -485,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/11/阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析/" rel="prev" title="阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析">
-                阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -671,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在内容之前的个人看法："><span class="nav-number">1.</span> <span class="nav-text">写在内容之前的个人看法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model的建立："><span class="nav-number">2.</span> <span class="nav-text">Model的建立：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model与MDP："><span class="nav-number">2.1.</span> <span class="nav-text">Model与MDP：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reward-shaping："><span class="nav-number">2.2.</span> <span class="nav-text">Reward shaping：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作者对project的思考："><span class="nav-number">2.3.</span> <span class="nav-text">作者对project的思考：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作者总结："><span class="nav-number">2.3.1.</span> <span class="nav-text">作者总结：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我的观点："><span class="nav-number">2.3.2.</span> <span class="nav-text">我的观点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作者总结：-1"><span class="nav-number">2.3.3.</span> <span class="nav-text">作者总结：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我的观点：-1"><span class="nav-number">2.3.4.</span> <span class="nav-text">我的观点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作者总结：-2"><span class="nav-number">2.3.5.</span> <span class="nav-text">作者总结：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我的观点：-2"><span class="nav-number">2.3.6.</span> <span class="nav-text">我的观点：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要使用排行榜："><span class="nav-number">1.</span> <span class="nav-text">为什么要使用排行榜：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#经典的排行榜算法："><span class="nav-number">2.</span> <span class="nav-text">经典的排行榜算法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#考虑热度随时间衰减："><span class="nav-number">2.1.</span> <span class="nav-text">考虑热度随时间衰减：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#模拟重力："><span class="nav-number">2.1.1.</span> <span class="nav-text">模拟重力：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模拟冷却："><span class="nav-number">2.1.2.</span> <span class="nav-text">模拟冷却：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考虑综合投票："><span class="nav-number">2.2.</span> <span class="nav-text">考虑综合投票：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#考虑好评比例和平均度："><span class="nav-number">2.3.</span> <span class="nav-text">考虑好评比例和平均度：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -822,7 +829,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/03/11/阿里强化学习应用：强化学习实时搜索策略调控/'
+    refer: '2019/03/14/推荐系统：其他方法之排行榜（blog总结）/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
@@ -832,7 +839,69 @@
     j.async = true;
     e.parentNode.insertBefore(j, e);
   })(document, 'script');
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -851,32 +920,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-
+    
   
 
 
