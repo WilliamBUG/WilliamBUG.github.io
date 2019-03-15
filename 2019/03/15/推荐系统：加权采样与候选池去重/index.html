@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="写在内容之前的个人看法：这个是一个比较传统的RL应用，并没有使用DL，只是使用了线性拟合就提升了效果，作者在章节最后也提到将DPG升级成了DDPG获得了更好的效果，更加验证了RL在搜索排序的有效性和使用DL在这个场景下作为approximator的可行性。我一直认为在推荐领域，RL有效的前提是客户与系统交互的持续性，因为在这种条件下，追求动作序列所带来最大收益的效果最明显。所以在买了又买，看了又看">
-<meta name="keywords" content="搜索排序,搜索策略,阿里强化学习,强化学习,DRL">
+  <meta name="description" content="对标签进行采样在推荐系统经常算出了很多个用户兴趣标签，但是全量计算标签计算量比较大，我们希望通过采样的方式采出来一些标签进行推荐。这不仅可以减少计算复杂度，保留更多而标签，还能为推荐带来一些随机性，让每次推荐的结果都不一样。 加权采样方法：总体上分为有限数据集采样（遍历所有样本计算分数）和无限数据集采样（无需遍历所有样本或应用于数据流），也就是流采样。 有限集加权采样：正比加权： $$S_i=R^">
+<meta name="keywords" content="推荐,标签采样">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里强化学习应用：基于强化学习的实时搜索策略调控">
-<meta property="og:url" content="http://yoursite.com/2019/03/11/阿里强化学习应用：强化学习实时搜索策略调控/index.html">
+<meta property="og:title" content="推荐系统：加权采样与候选池去重">
+<meta property="og:url" content="http://yoursite.com/2019/03/15/推荐系统：加权采样与候选池去重/index.html">
 <meta property="og:site_name" content="龙渊">
-<meta property="og:description" content="写在内容之前的个人看法：这个是一个比较传统的RL应用，并没有使用DL，只是使用了线性拟合就提升了效果，作者在章节最后也提到将DPG升级成了DDPG获得了更好的效果，更加验证了RL在搜索排序的有效性和使用DL在这个场景下作为approximator的可行性。我一直认为在推荐领域，RL有效的前提是客户与系统交互的持续性，因为在这种条件下，追求动作序列所带来最大收益的效果最明显。所以在买了又买，看了又看">
+<meta property="og:description" content="对标签进行采样在推荐系统经常算出了很多个用户兴趣标签，但是全量计算标签计算量比较大，我们希望通过采样的方式采出来一些标签进行推荐。这不仅可以减少计算复杂度，保留更多而标签，还能为推荐带来一些随机性，让每次推荐的结果都不一样。 加权采样方法：总体上分为有限数据集采样（遍历所有样本计算分数）和无限数据集采样（无需遍历所有样本或应用于数据流），也就是流采样。 有限集加权采样：正比加权： $$S_i=R^">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-14T09:09:16.367Z">
+<meta property="og:updated_time" content="2019-03-15T09:09:09.516Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里强化学习应用：基于强化学习的实时搜索策略调控">
-<meta name="twitter:description" content="写在内容之前的个人看法：这个是一个比较传统的RL应用，并没有使用DL，只是使用了线性拟合就提升了效果，作者在章节最后也提到将DPG升级成了DDPG获得了更好的效果，更加验证了RL在搜索排序的有效性和使用DL在这个场景下作为approximator的可行性。我一直认为在推荐领域，RL有效的前提是客户与系统交互的持续性，因为在这种条件下，追求动作序列所带来最大收益的效果最明显。所以在买了又买，看了又看">
+<meta name="twitter:title" content="推荐系统：加权采样与候选池去重">
+<meta name="twitter:description" content="对标签进行采样在推荐系统经常算出了很多个用户兴趣标签，但是全量计算标签计算量比较大，我们希望通过采样的方式采出来一些标签进行推荐。这不仅可以减少计算复杂度，保留更多而标签，还能为推荐带来一些随机性，让每次推荐的结果都不一样。 加权采样方法：总体上分为有限数据集采样（遍历所有样本计算分数）和无限数据集采样（无需遍历所有样本或应用于数据流），也就是流采样。 有限集加权采样：正比加权： $$S_i=R^">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/11/阿里强化学习应用：强化学习实时搜索策略调控/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/15/推荐系统：加权采样与候选池去重/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>阿里强化学习应用：基于强化学习的实时搜索策略调控 | 龙渊</title>
+  <title>推荐系统：加权采样与候选池去重 | 龙渊</title>
   
 
 
@@ -340,7 +340,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/11/阿里强化学习应用：强化学习实时搜索策略调控/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/15/推荐系统：加权采样与候选池去重/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Tan">
@@ -357,7 +357,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">阿里强化学习应用：基于强化学习的实时搜索策略调控
+          <h1 class="post-title" itemprop="name headline">推荐系统：加权采样与候选池去重
 
               
             
@@ -383,24 +383,12 @@
                 
               
 
-              <time title="创建时间：2019-03-11 16:33:38" itemprop="dateCreated datePublished" datetime="2019-03-11T16:33:38+08:00">2019-03-11</time>
+              <time title="创建时间：2019-03-15 16:44:22 / 修改时间：17:09:09" itemprop="dateCreated datePublished" datetime="2019-03-15T16:44:22+08:00">2019-03-15</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-14 17:09:16" itemprop="dateModified" datetime="2019-03-14T17:09:16+08:00">2019-03-14</time>
               
             
           </span>
@@ -417,7 +405,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/阿里强化学习/" itemprop="url" rel="index"><span itemprop="name">阿里强化学习</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/推荐系统/" itemprop="url" rel="index"><span itemprop="name">推荐系统</span></a></span>
 
                 
                 
@@ -451,16 +439,21 @@
       
 
       
-        <h2 id="写在内容之前的个人看法："><a href="#写在内容之前的个人看法：" class="headerlink" title="写在内容之前的个人看法："></a>写在内容之前的个人看法：</h2><p>这个是一个比较传统的RL应用，并没有使用DL，只是使用了线性拟合就提升了效果，作者在章节最后也提到将DPG升级成了DDPG获得了更好的效果，更加验证了RL在搜索排序的有效性和使用DL在这个场景下作为approximator的可行性。我一直认为在推荐领域，RL有效的前提是客户与系统交互的持续性，因为在这种条件下，追求动作序列所带来最大收益的效果最明显。所以在买了又买，看了又看，Steam探索兴趣序列等类似场景有非常大的用武之地。在其他场景，针对特定Reward指标进行优化，进行exploration也是RL所具有的优势。</p>
-<h2 id="Model的建立："><a href="#Model的建立：" class="headerlink" title="Model的建立："></a>Model的建立：</h2><h3 id="Model与MDP："><a href="#Model与MDP：" class="headerlink" title="Model与MDP："></a>Model与MDP：</h3><p>对用户搜索进行特定排序响应，引导搜索成交量提升。Contextual Learnjng to Rank是传统算法，但是不考虑sequential decision making。但是动态的交互过程其实是广泛存在的，MDP的假设也应该是成立的，所以使用DPG对这个过程进行建模和求解。</p>
-<p>系统是agent，客户是environment，客户的动作就是reward，action就是向客户推荐的权重，state包含了用户的历史讯息，包括点击购买和用户本身的feature包括购买力和喜欢的商品类型。（The action is a vector of the weights to calculate the final score. The weights will perform element-wise multiplication with the features weights of the products. After calculating the final score, the product will be ranked by the scores. ）</p>
-<h3 id="Reward-shaping："><a href="#Reward-shaping：" class="headerlink" title="Reward shaping："></a>Reward shaping：</h3><p>The reward is reshaped to add potential function which calculates the maximum likelihood of CTR and action. 单纯的CTR+GMV区分度仍然不够！这个potential funciton是从LTR借鉴过来的，本质上是一种启发式，但是，因为在计算的时候是使用了actor的权重乘以物品本身的feature来计算Likelihood，所以不在满足独立同分布条件。我个人认为这个优化特别像path consistency learning或者SAC中，使用entropy项在reward中，起到了一定的regularization的作用，同时鼓励了exploration，让agent有更强的泛化性，最后结果也更加准确且有区分度。（multi-agent和multi-goal都可以增加泛化能力，这也是未来DRL的研究方向）。</p>
-<h3 id="作者对project的思考："><a href="#作者对project的思考：" class="headerlink" title="作者对project的思考："></a>作者对project的思考：</h3><h4 id="作者总结："><a href="#作者总结：" class="headerlink" title="作者总结："></a>作者总结：</h4><p>“状态表示的assumption可能是错的，因为用户的历史行为具有较强的随机性，具体表现为有时候什么都想点进去看看，所以这个对state的表示可能是错误的。所以可以使用DL，加更多的特征然后依赖DL的auto feature engineering的能力进一步提升性能”</p>
-<h4 id="我的观点："><a href="#我的观点：" class="headerlink" title="我的观点："></a>我的观点：</h4><p>是这样的，所以要使用DDPG而不是DPG，而且这个还涉及到了POMDP的适应性问题，所以还是应该在未来的发展中使用DL，但是问题还是在于offline学习之后在线上fin-tune会出现不稳定的这个问题，这个阶段会带来实打实的流量损失，而且使用了DL更不能保证收敛，所以必须把系统做的robust一些才行。</p>
-<h4 id="作者总结：-1"><a href="#作者总结：-1" class="headerlink" title="作者总结："></a>作者总结：</h4><p>“使用了Reward shapping是启发式的，应该有其他方法能够学到更好的reward，比如Inverse Reinforcement Learning，但是对于目前的境地，并没有专家函数供我们使用。”</p>
-<h4 id="我的观点：-1"><a href="#我的观点：-1" class="headerlink" title="我的观点："></a>我的观点：</h4><p>是这样的，但是reward engineering本身就是RL算法所要做的事，尝试多种reward定义方法可以增加insight，对之后的项目发展其实是有好处的。传统的IRL方法都是要在每一次迭代完全求解一次MDP，并不适用于目前维度大，空间连续的推荐问题，最新的Generative adversarial immitation learning表现也并不是很难稳定。当然，没有合适的expert仍然是最大问题。</p>
-<h4 id="作者总结：-2"><a href="#作者总结：-2" class="headerlink" title="作者总结："></a>作者总结：</h4><p>“用户应该模拟成Agent，最后的结构应该是一个multi-agent的问题”</p>
-<h4 id="我的观点：-2"><a href="#我的观点：-2" class="headerlink" title="我的观点："></a>我的观点：</h4><p>见仁见智，这个问题在probabilistic robotics中也有研究，因为人的特殊属性，如何model人本身的行为就是问题所在，但是我倾向于认为这个是POMDP，跟multi-agent所涉及到的问题关系不是特别强烈。</p>
+        <h2 id="对标签进行采样"><a href="#对标签进行采样" class="headerlink" title="对标签进行采样"></a>对标签进行采样</h2><p>在推荐系统经常算出了很多个用户兴趣标签，但是全量计算标签计算量比较大，我们希望通过采样的方式采出来一些标签进行推荐。这不仅可以减少计算复杂度，保留更多而标签，还能为推荐带来一些随机性，让每次推荐的结果都不一样。</p>
+<h3 id="加权采样方法："><a href="#加权采样方法：" class="headerlink" title="加权采样方法："></a>加权采样方法：</h3><p>总体上分为有限数据集采样（遍历所有样本计算分数）和无限数据集采样（无需遍历所有样本或应用于数据流），也就是流采样。</p>
+<h4 id="有限集加权采样："><a href="#有限集加权采样：" class="headerlink" title="有限集加权采样："></a>有限集加权采样：</h4><h5 id="正比加权："><a href="#正比加权：" class="headerlink" title="正比加权："></a>正比加权：</h5><blockquote>
+<p>$$S_i=R^{(1/w_i)}$$</p>
+</blockquote>
+<p>其中$w_i$为权重，$R$为采样过程随机产生的随机数，$S$为最终采样分数。</p>
+<h5 id="指数加权采样："><a href="#指数加权采样：" class="headerlink" title="指数加权采样："></a>指数加权采样：</h5><blockquote>
+<p>$$\lambda e^{-\lambda x}$$</p>
+</blockquote>
+<p>其中$1/\lambda$就是事件发生的间隔期望，所以我们就直接设置$\lambda$为标签权重，为每一个标签设置一个指数分布，再从各个标签自己的指数分布进行采样，比大小就可以了。</p>
+<h4 id="无限集集权采样："><a href="#无限集集权采样：" class="headerlink" title="无限集集权采样："></a>无限集集权采样：</h4><h5 id="蓄水池法："><a href="#蓄水池法：" class="headerlink" title="蓄水池法："></a>蓄水池法：</h5><p>如果总共有n个，需要从集中取出k个，那么我们可以先取出k个，之后n-k个每个以k/n概率替换前面的k个中的样本。</p>
+<p>改进的加权蓄水池可以使用正比加权计算分数，先采样k个建立小顶堆，之后如果谁的分数比最小的分数大，就进行替换。</p>
+<h2 id="去重策略："><a href="#去重策略：" class="headerlink" title="去重策略："></a>去重策略：</h2><p>对于推荐有两个刚性需要：内容去重复和不将重复内容推荐给用户（因为有的用户喜欢温习之前的文章或者视频，而对于内容来讲，部分相同的内容可能更有利于内容的传播，所以在真正使用上其实可以斟酌使用）</p>
+<h3 id="Simhash："><a href="#Simhash：" class="headerlink" title="Simhash："></a>Simhash：</h3><p>对于专门做内容搬运和聚合分发的第三方来说，相似内容会遇到很多。这里推荐使用simhash，让hash table对于内容稍有不同的敏感度降下来。（对关键词的code乘以权重，之后将code相加，去除负号项）。</p>
+<h3 id="布隆过滤器："><a href="#布隆过滤器：" class="headerlink" title="布隆过滤器："></a>布隆过滤器：</h3><p>对与防止重复的ID被推荐，实际上是一个大集合中寻找某个特定值的做法，可以使用bloomfilter，bloomfilter的原理就是将一个原始模式串映射到多个hash上，每个hash映射成正整数k，然后将对照数组的第k位设置成1，这样一旦获取了集合中已经有的ID，则所有hash会映射到1，如果没有，就会有其中的某些hash映射到0。bloomfilter不是百分之百的正确（有的肯定有，但是没有的可能也被认为有）。</p>
 
       
     </div>
@@ -484,15 +477,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/搜索排序/" rel="tag"># 搜索排序</a>
+            <a href="/tags/推荐/" rel="tag"># 推荐</a>
           
-            <a href="/tags/搜索策略/" rel="tag"># 搜索策略</a>
-          
-            <a href="/tags/阿里强化学习/" rel="tag"># 阿里强化学习</a>
-          
-            <a href="/tags/强化学习/" rel="tag"># 强化学习</a>
-          
-            <a href="/tags/DRL/" rel="tag"># DRL</a>
+            <a href="/tags/标签采样/" rel="tag"># 标签采样</a>
           
         </div>
       
@@ -505,8 +492,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/08/推荐系统：MAB部分（blog总结）/" rel="next" title="推荐系统：MAB部分（blog总结）">
-                <i class="fa fa-chevron-left"></i> 推荐系统：MAB部分（blog总结）
+              <a href="/2019/03/15/阿里强化学习应用：引擎搜索能耗问题/" rel="next" title="阿里强化学习应用：引擎搜索能耗问题">
+                <i class="fa fa-chevron-left"></i> 阿里强化学习应用：引擎搜索能耗问题
               </a>
             
           </div>
@@ -514,10 +501,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/11/阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析/" rel="prev" title="阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析">
-                阿里强化学习应用：延迟奖赏在搜索排序场景中的作用分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -710,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在内容之前的个人看法："><span class="nav-number">1.</span> <span class="nav-text">写在内容之前的个人看法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Model的建立："><span class="nav-number">2.</span> <span class="nav-text">Model的建立：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model与MDP："><span class="nav-number">2.1.</span> <span class="nav-text">Model与MDP：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reward-shaping："><span class="nav-number">2.2.</span> <span class="nav-text">Reward shaping：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作者对project的思考："><span class="nav-number">2.3.</span> <span class="nav-text">作者对project的思考：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#作者总结："><span class="nav-number">2.3.1.</span> <span class="nav-text">作者总结：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我的观点："><span class="nav-number">2.3.2.</span> <span class="nav-text">我的观点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作者总结：-1"><span class="nav-number">2.3.3.</span> <span class="nav-text">作者总结：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我的观点：-1"><span class="nav-number">2.3.4.</span> <span class="nav-text">我的观点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作者总结：-2"><span class="nav-number">2.3.5.</span> <span class="nav-text">作者总结：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我的观点：-2"><span class="nav-number">2.3.6.</span> <span class="nav-text">我的观点：</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对标签进行采样"><span class="nav-number">1.</span> <span class="nav-text">对标签进行采样</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加权采样方法："><span class="nav-number">1.1.</span> <span class="nav-text">加权采样方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有限集加权采样："><span class="nav-number">1.1.1.</span> <span class="nav-text">有限集加权采样：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#正比加权："><span class="nav-number">1.1.1.1.</span> <span class="nav-text">正比加权：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#指数加权采样："><span class="nav-number">1.1.1.2.</span> <span class="nav-text">指数加权采样：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无限集集权采样："><span class="nav-number">1.1.2.</span> <span class="nav-text">无限集集权采样：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#蓄水池法："><span class="nav-number">1.1.2.1.</span> <span class="nav-text">蓄水池法：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#去重策略："><span class="nav-number">2.</span> <span class="nav-text">去重策略：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Simhash："><span class="nav-number">2.1.</span> <span class="nav-text">Simhash：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布隆过滤器："><span class="nav-number">2.2.</span> <span class="nav-text">布隆过滤器：</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -870,7 +853,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/03/11/阿里强化学习应用：强化学习实时搜索策略调控/'
+    refer: '2019/03/15/推荐系统：加权采样与候选池去重/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
@@ -880,7 +863,69 @@
     j.async = true;
     e.parentNode.insertBefore(j, e);
   })(document, 'script');
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -899,32 +944,7 @@
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
 
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-  
-
+    
   
 
 
