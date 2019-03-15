@@ -97,14 +97,14 @@
 
 
   <meta name="description" content="淘宝锦囊：淘宝锦囊用于粗略查找下的细分查找，在用户每次query之后的SRP中提供细分词汇，用户点击词汇，那么系统将会结合词汇与用户的query结合再次进行更精准的推荐。 由于如果将锦囊考虑为离散动作的话动作量十分巨大，可以初步考虑将动作id进行embedding再进行学习，但环境复杂度很高，不同群体的数量不一样也是训练的难点。 Reward建模：两个reward function,分别对应人的点">
-<meta name="keywords" content="搜索策略,阿里强化学习,强化学习,DRL,DQN">
+<meta name="keywords" content="阿里强化学习,强化学习,DRL,搜索策略,DQN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿里强化学习应用：淘宝锦囊">
 <meta property="og:url" content="http://yoursite.com/2019/03/14/阿里强化学习应用：淘宝锦囊/index.html">
 <meta property="og:site_name" content="龙渊">
 <meta property="og:description" content="淘宝锦囊：淘宝锦囊用于粗略查找下的细分查找，在用户每次query之后的SRP中提供细分词汇，用户点击词汇，那么系统将会结合词汇与用户的query结合再次进行更精准的推荐。 由于如果将锦囊考虑为离散动作的话动作量十分巨大，可以初步考虑将动作id进行embedding再进行学习，但环境复杂度很高，不同群体的数量不一样也是训练的难点。 Reward建模：两个reward function,分别对应人的点">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-14T09:09:48.728Z">
+<meta property="og:updated_time" content="2019-03-15T02:20:58.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里强化学习应用：淘宝锦囊">
 <meta name="twitter:description" content="淘宝锦囊：淘宝锦囊用于粗略查找下的细分查找，在用户每次query之后的SRP中提供细分词汇，用户点击词汇，那么系统将会结合词汇与用户的query结合再次进行更精准的推荐。 由于如果将锦囊考虑为离散动作的话动作量十分巨大，可以初步考虑将动作id进行embedding再进行学习，但环境复杂度很高，不同群体的数量不一样也是训练的难点。 Reward建模：两个reward function,分别对应人的点">
@@ -366,12 +366,24 @@
                 
               
 
-              <time title="创建时间：2019-03-14 16:58:33 / 修改时间：17:09:48" itemprop="dateCreated datePublished" datetime="2019-03-14T16:58:33+08:00">2019-03-14</time>
+              <time title="创建时间：2019-03-14 16:58:33" itemprop="dateCreated datePublished" datetime="2019-03-14T16:58:33+08:00">2019-03-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-15 10:20:58" itemprop="dateModified" datetime="2019-03-15T10:20:58+08:00">2019-03-15</time>
               
             
           </span>
@@ -425,8 +437,7 @@
         <h2 id="淘宝锦囊："><a href="#淘宝锦囊：" class="headerlink" title="淘宝锦囊："></a>淘宝锦囊：</h2><p>淘宝锦囊用于粗略查找下的细分查找，在用户每次query之后的SRP中提供细分词汇，用户点击词汇，那么系统将会结合词汇与用户的query结合再次进行更精准的推荐。 由于如果将锦囊考虑为离散动作的话动作量十分巨大，可以初步考虑将动作id进行embedding再进行学习，但环境复杂度很高，不同群体的数量不一样也是训练的难点。</p>
 <h2 id="Reward建模："><a href="#Reward建模：" class="headerlink" title="Reward建模："></a>Reward建模：</h2><p>两个reward function,分别对应人的点击的时间和使用频率，其中锦囊在pv开始就被点击是最好的情况，越往后贡献越小（对应了应该尽快促成交易），不使用锦囊的人使用了锦囊应该得到更大的奖励。</p>
 <h2 id="算法模型："><a href="#算法模型：" class="headerlink" title="算法模型："></a>算法模型：</h2><p>主体框架使用double DQN（改变传统的结构输入S，A来获得最后的Q-value（但是我比较怀疑action和state都作为输入generalization真的会保证么？作者指出因为存在两万个action所以如果按照原结构训练效果更差，可能只要输入维度够大，数据够多，embedding之后是可以保证的把）。在offline learning的时候用,解决用户分布差异过大的问题，这是因为受到活动日期等影响，不同群体所占比例不断地发生变化使得agent习得的policy不稳定，使用stratified sampling replay代替replay memory。再使用benchmark Elimination来消除用户量随时间变化后reward的增减不是由agent的action得出的问题，这个是使用另一个模型通过CTR预估的方法predict特定用户群的动作做为benchmark，之后使用从reward function中计算的reward减去benchmark得到训练所使用的reward signal。</p>
-<p>##我的想法：</p>
-<p>这是非常注重工程实际落地的一个work，简单直接，每一个改进都是具有针对性的。作者在最后说由于他们无法获得全面的用户feature所以没有办法更精确的进行推荐，这对应了POMDP问题，DRL在一定程度上可以缓解这个问题。其实，相比之下，我认为更应该好好应对的其实是2万个action的问题，有没有必要model成这个么多个action，可不可以做成hierarchy的来提升inference的表现，有没有可能在inference过程中使用更快的近似方法，都是很好的实践方向。</p>
+<h2 id="我的想法："><a href="#我的想法：" class="headerlink" title="我的想法："></a>我的想法：</h2><p>这是非常注重工程实际落地的一个work，简单直接，每一个改进都是具有针对性的。作者在最后说由于他们无法获得全面的用户feature所以没有办法更精确的进行推荐，这对应了POMDP问题，DRL在一定程度上可以缓解这个问题。其实，相比之下，我认为更应该好好应对的其实是2万个action的问题，有没有必要model成这个么多个action，可不可以做成hierarchy的来提升inference的表现，有没有可能在inference过程中使用更快的近似方法，都是很好的实践方向。</p>
 
       
     </div>
@@ -450,13 +461,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/搜索策略/" rel="tag"># 搜索策略</a>
-          
             <a href="/tags/阿里强化学习/" rel="tag"># 阿里强化学习</a>
           
             <a href="/tags/强化学习/" rel="tag"># 强化学习</a>
           
             <a href="/tags/DRL/" rel="tag"># DRL</a>
+          
+            <a href="/tags/搜索策略/" rel="tag"># 搜索策略</a>
           
             <a href="/tags/DQN/" rel="tag"># DQN</a>
           
@@ -480,6 +491,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/15/阿里强化学习应用：引擎搜索能耗问题/" rel="prev" title="阿里强化学习应用：引擎搜索能耗问题">
+                阿里强化学习应用：引擎搜索能耗问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -556,7 +571,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-count">17</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -630,7 +645,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">22</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -666,7 +685,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#淘宝锦囊："><span class="nav-number">1.</span> <span class="nav-text">淘宝锦囊：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reward建模："><span class="nav-number">2.</span> <span class="nav-text">Reward建模：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法模型："><span class="nav-number">3.</span> <span class="nav-text">算法模型：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#淘宝锦囊："><span class="nav-number">1.</span> <span class="nav-text">淘宝锦囊：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reward建模："><span class="nav-number">2.</span> <span class="nav-text">Reward建模：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法模型："><span class="nav-number">3.</span> <span class="nav-text">算法模型：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的想法："><span class="nav-number">4.</span> <span class="nav-text">我的想法：</span></a></li></ol></div>
             
 
           </div>

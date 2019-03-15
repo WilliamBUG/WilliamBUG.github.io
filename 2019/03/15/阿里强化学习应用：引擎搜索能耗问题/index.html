@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="这一部分主要介绍在Netflix Prize比赛中使用并且取得良好效果的算法：SVD分解以及进阶使用。 需要解决的评分预测问题：用户的动作包含了implicit feedback（点击，阅读等），同时也存在explicit feedback（评分）。通常情况下，对于explicit feedback的预测，也叫做评分预测，是比行为预测更加困难的，因为评分预测本身就具有分数不可轻易得到的特点且问题复">
-<meta name="keywords" content="推荐,Model-based CF,collaborative filtering">
+  <meta name="description" content="引擎搜索的能耗问题：使用全搜索因子进行搜索在流量巨大时会消耗很大的计算资源。在高并发流量涌入的情况一般通过两个方案解决，一个是事先准备廉价方案不适用效果好但是耗能高的因子，第二个就是下线一些不重要任务，减小召回数量，粗排过滤宝贝等。但是以上方案都是硬妥协，可不可以平衡流量情况和因子使用情况来促成更大的收益？ 我们可以通过DRL学习如何针对用户feature和已选的搜索因子决定下一个搜索因子是否使用">
+<meta name="keywords" content="搜索引擎能耗优化,阿里强化学习,强化学习,DRL,on-policy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="推荐系统：协同过滤第三部分（blog总结）">
-<meta property="og:url" content="http://yoursite.com/2019/02/21/推荐系统：协同过滤第三部分（blog）/index.html">
+<meta property="og:title" content="阿里强化学习应用：引擎搜索能耗问题">
+<meta property="og:url" content="http://yoursite.com/2019/03/15/阿里强化学习应用：引擎搜索能耗问题/index.html">
 <meta property="og:site_name" content="龙渊">
-<meta property="og:description" content="这一部分主要介绍在Netflix Prize比赛中使用并且取得良好效果的算法：SVD分解以及进阶使用。 需要解决的评分预测问题：用户的动作包含了implicit feedback（点击，阅读等），同时也存在explicit feedback（评分）。通常情况下，对于explicit feedback的预测，也叫做评分预测，是比行为预测更加困难的，因为评分预测本身就具有分数不可轻易得到的特点且问题复">
+<meta property="og:description" content="引擎搜索的能耗问题：使用全搜索因子进行搜索在流量巨大时会消耗很大的计算资源。在高并发流量涌入的情况一般通过两个方案解决，一个是事先准备廉价方案不适用效果好但是耗能高的因子，第二个就是下线一些不重要任务，减小召回数量，粗排过滤宝贝等。但是以上方案都是硬妥协，可不可以平衡流量情况和因子使用情况来促成更大的收益？ 我们可以通过DRL学习如何针对用户feature和已选的搜索因子决定下一个搜索因子是否使用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-21T08:44:29.577Z">
+<meta property="og:updated_time" content="2019-03-15T08:05:04.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="推荐系统：协同过滤第三部分（blog总结）">
-<meta name="twitter:description" content="这一部分主要介绍在Netflix Prize比赛中使用并且取得良好效果的算法：SVD分解以及进阶使用。 需要解决的评分预测问题：用户的动作包含了implicit feedback（点击，阅读等），同时也存在explicit feedback（评分）。通常情况下，对于explicit feedback的预测，也叫做评分预测，是比行为预测更加困难的，因为评分预测本身就具有分数不可轻易得到的特点且问题复">
+<meta name="twitter:title" content="阿里强化学习应用：引擎搜索能耗问题">
+<meta name="twitter:description" content="引擎搜索的能耗问题：使用全搜索因子进行搜索在流量巨大时会消耗很大的计算资源。在高并发流量涌入的情况一般通过两个方案解决，一个是事先准备廉价方案不适用效果好但是耗能高的因子，第二个就是下线一些不重要任务，减小召回数量，粗排过滤宝贝等。但是以上方案都是硬妥协，可不可以平衡流量情况和因子使用情况来促成更大的收益？ 我们可以通过DRL学习如何针对用户feature和已选的搜索因子决定下一个搜索因子是否使用">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/21/推荐系统：协同过滤第三部分（blog）/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/15/阿里强化学习应用：引擎搜索能耗问题/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>推荐系统：协同过滤第三部分（blog总结） | 龙渊</title>
+  <title>阿里强化学习应用：引擎搜索能耗问题 | 龙渊</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/推荐系统：协同过滤第三部分（blog）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/15/阿里强化学习应用：引擎搜索能耗问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="William Tan">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">推荐系统：协同过滤第三部分（blog总结）
+          <h1 class="post-title" itemprop="name headline">阿里强化学习应用：引擎搜索能耗问题
 
               
             
@@ -366,7 +366,7 @@
                 
               
 
-              <time title="创建时间：2019-02-21 15:45:32 / 修改时间：16:44:29" itemprop="dateCreated datePublished" datetime="2019-02-21T15:45:32+08:00">2019-02-21</time>
+              <time title="创建时间：2019-03-15 15:47:28 / 修改时间：16:05:04" itemprop="dateCreated datePublished" datetime="2019-03-15T15:47:28+08:00">2019-03-15</time>
             
 
             
@@ -388,7 +388,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/推荐系统/" itemprop="url" rel="index"><span itemprop="name">推荐系统</span></a></span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/阿里强化学习/" itemprop="url" rel="index"><span itemprop="name">阿里强化学习</span></a></span>
 
                 
                 
@@ -422,20 +422,15 @@
       
 
       
-        <p>这一部分主要介绍在Netflix Prize比赛中使用并且取得良好效果的算法：SVD分解以及进阶使用。</p>
-<h2 id="需要解决的评分预测问题："><a href="#需要解决的评分预测问题：" class="headerlink" title="需要解决的评分预测问题："></a>需要解决的评分预测问题：</h2><p>用户的动作包含了implicit feedback（点击，阅读等），同时也存在explicit feedback（评分）。通常情况下，对于explicit feedback的预测，也叫做评分预测，是比行为预测更加困难的，因为评分预测本身就具有分数不可轻易得到的特点且问题复杂。评分预测问题最早是在netflix prize时发展出来，诞生了以SVD为主要技术的矩阵分解算法。（其实所有使用类似分解技术的统称为latent factor model，这个之后在总结《Recommender system：the text book》和《推荐系统实践》的时候再做系统总结）</p>
-<h3 id="矩阵分解主要解决邻近模型的几个问题："><a href="#矩阵分解主要解决邻近模型的几个问题：" class="headerlink" title="矩阵分解主要解决邻近模型的几个问题："></a>矩阵分解主要解决邻近模型的几个问题：</h3><ol>
-<li>物品之间的相关性和信息量并不是随着向量维度增加而线性增加。</li>
-<li>matrix 有很多sparse vector，计算结构不够robust。</li>
-</ol>
-<h2 id="以SVD为基础的算法和改进型"><a href="#以SVD为基础的算法和改进型" class="headerlink" title="以SVD为基础的算法和改进型"></a>以SVD为基础的算法和改进型</h2><h3 id="1-使用基础SVD："><a href="#1-使用基础SVD：" class="headerlink" title="1.使用基础SVD："></a>1.使用基础SVD：</h3><p>将数据表示成两个矩阵相乘的，并尽最大可能还原原矩阵。在分解过程中，物品与用户都被投影到k维空间。最后将两个k维向量相乘就得到了推荐分数。关键是如何取得k维的向量，最直接的手段是设定loss就是预测分与label的偏差加上regularized term。</p>
-<h3 id="2-增加bias："><a href="#2-增加bias：" class="headerlink" title="2.增加bias："></a>2.增加bias：</h3><p>我们认为一个用户的评分受到用户个人偏见，平台总体气氛等影响，所以我们可以把评分拆解成四个部分：</p>
-<blockquote>
-<p>评分 = 平均分 + 用户bias + 物品bias + 用户和物品之间的兴趣偏好（两向量相乘）</p>
-</blockquote>
-<p>所以现必须要多学习两个参数，物品偏置与用户偏置。</p>
-<h3 id="3-增加历史行为："><a href="#3-增加历史行为：" class="headerlink" title="3.增加历史行为："></a>3.增加历史行为：</h3><p>将隐式反馈和用户属性加入到信息偏执的equation中，这两个向量直接加到向量中，再整合到loss中求解。</p>
-<h3 id="4-考虑时间因素："><a href="#4-考虑时间因素：" class="headerlink" title="4.考虑时间因素："></a>4.考虑时间因素：</h3><p>人是善变的，为了应对变化，我们可以将隐因子加权（评分最后一项），让之前的因子趋近平均值，或者按照不同的时间段学习，或者对特定时间增加因子。</p>
+        <h2 id="引擎搜索的能耗问题："><a href="#引擎搜索的能耗问题：" class="headerlink" title="引擎搜索的能耗问题："></a>引擎搜索的能耗问题：</h2><p>使用全搜索因子进行搜索在流量巨大时会消耗很大的计算资源。在高并发流量涌入的情况一般通过两个方案解决，一个是事先准备廉价方案不适用效果好但是耗能高的因子，第二个就是下线一些不重要任务，减小召回数量，粗排过滤宝贝等。但是以上方案都是硬妥协，可不可以平衡流量情况和因子使用情况来促成更大的收益？</p>
+<p>我们可以通过DRL学习如何针对用户feature和已选的搜索因子决定下一个搜索因子是否使用，本质上是选择一个optimal subset，目标是让现在的搜索效果与全因子搜索效果的kl divergence缩小（选择optimal subset在很多场景下都是NP hard问题）。</p>
+<h3 id="State定义："><a href="#State定义：" class="headerlink" title="State定义："></a>State定义：</h3><p>用户feature，query特征，前面的工作序列以及动作步骤（这一步我有疑问，如何解决state的维度不断增多这个问题呢？由于作者没有介绍更多，这里我自己猜的是有n维度因子开关，关闭为0，开启为1，每一次agent根据最后一个维度开启或者关闭第k个，状态转移至最后一个维度变成k+1）。</p>
+<h3 id="Action定义："><a href="#Action定义：" class="headerlink" title="Action定义："></a>Action定义：</h3><p>binary：skip和eval，skip代表drop，eval代表使用</p>
+<h3 id="Reward-function："><a href="#Reward-function：" class="headerlink" title="Reward function："></a>Reward function：</h3><p>鼓励减少高因子能耗的feature的使用，但是保证排序的有效性，选太少了会给一个很大的cost，之后再考虑因子能耗，综合成reward function。（由于在training过程中，原先排序系统也在环境中并提供参照排序，所以原先的系统才是环境，现在的系统是想学习在新入state下如何省略一些花销，所以这个是一个建立在老系统的新系统，我们不需要弄明白老系统的机制，只要学会操作老系统达到目的即可，其实是cheat老系统）。</p>
+<h2 id="我的想法："><a href="#我的想法：" class="headerlink" title="我的想法："></a>我的想法：</h2><p>这个工作和我最近在研究得大型数据中心散热问题有些相似，非常希望看到更多针对设施优化和实际工程场景优化的DRL应用，作者在问题定义和方法使用上也很巧妙，最后的结果也是实打实地降低了能耗，为集团节约了更多的开销，其意义是毋庸置疑的。</p>
+<p>但是因为篇幅有限有些地方不是很清楚。在我看来这个工作有两个方面可以改进，一个是reward本身，一个是训练过程。首先reawrd由两部分组成，第一部分是与原先排序的KL divergence，第二部分为各因子的能耗，但是reward本身并没有直接关注商业指标比如说CTR或者GMV，当然这也是为什么系统能够做成on-policy的原因，本质上是一个自己写的simulation，所以可不可以使用off-policy的办法将商业指标和能耗直接挂钩。</p>
+<p>在第二个训练过程中，由于决定每个因子是否参与计算的决策是按顺序执行（注意每次计算的和是在k上进行的），这就代表着agent在一开始读取的因子有很大几率直接通过筛选，而排序靠后的因子大概率不会参与筛选，因为在initial state，每多选一个因子都会带来KL-divergence的减少，这其实有点像Decision Tree中ID3使用信息增益作为划定标准使得每次划分偏好可选项多的feature而C4.5使用信息增益比后被观察到每次划分偏向于可选项少的feature，所以有没有可能设计新的model使得因子筛选更加均匀也是一个好的研究方向。</p>
+<p>其实这种针对基础设施性能的优化目前好像并没有获得很大的关注，但是Google目前已经使用自己研发的AI agnet接管了自己的大数据中心，将散热耗能较少了将近百分之四十，有非常大的实际应用前景和意义，尤其是使用DRL可以直接将性能与收益挂钩，实现更加有针对性的优化，获得更大的长远收益。</p>
 
       
     </div>
@@ -459,11 +454,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/推荐/" rel="tag"># 推荐</a>
+            <a href="/tags/搜索引擎能耗优化/" rel="tag"># 搜索引擎能耗优化</a>
           
-            <a href="/tags/Model-based-CF/" rel="tag"># Model-based CF</a>
+            <a href="/tags/阿里强化学习/" rel="tag"># 阿里强化学习</a>
           
-            <a href="/tags/collaborative-filtering/" rel="tag"># collaborative filtering</a>
+            <a href="/tags/强化学习/" rel="tag"># 强化学习</a>
+          
+            <a href="/tags/DRL/" rel="tag"># DRL</a>
+          
+            <a href="/tags/on-policy/" rel="tag"># on-policy</a>
           
         </div>
       
@@ -476,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/15/推荐系统：协同过滤第二部分/" rel="next" title="推荐系统：协同过滤第二部分（blog总结）">
-                <i class="fa fa-chevron-left"></i> 推荐系统：协同过滤第二部分（blog总结）
+              <a href="/2019/03/14/阿里强化学习应用：淘宝锦囊/" rel="next" title="阿里强化学习应用：淘宝锦囊">
+                <i class="fa fa-chevron-left"></i> 阿里强化学习应用：淘宝锦囊
               </a>
             
           </div>
@@ -485,10 +484,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/05/推荐系统：协同过滤第四部分（blog总结）/" rel="prev" title="推荐系统：协同过滤第四部分（blog总结）">
-                推荐系统：协同过滤第四部分（blog总结） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -679,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需要解决的评分预测问题："><span class="nav-number">1.</span> <span class="nav-text">需要解决的评分预测问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#矩阵分解主要解决邻近模型的几个问题："><span class="nav-number">1.1.</span> <span class="nav-text">矩阵分解主要解决邻近模型的几个问题：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以SVD为基础的算法和改进型"><span class="nav-number">2.</span> <span class="nav-text">以SVD为基础的算法和改进型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-使用基础SVD："><span class="nav-number">2.1.</span> <span class="nav-text">1.使用基础SVD：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-增加bias："><span class="nav-number">2.2.</span> <span class="nav-text">2.增加bias：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-增加历史行为："><span class="nav-number">2.3.</span> <span class="nav-text">3.增加历史行为：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-考虑时间因素："><span class="nav-number">2.4.</span> <span class="nav-text">4.考虑时间因素：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引擎搜索的能耗问题："><span class="nav-number">1.</span> <span class="nav-text">引擎搜索的能耗问题：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#State定义："><span class="nav-number">1.1.</span> <span class="nav-text">State定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Action定义："><span class="nav-number">1.2.</span> <span class="nav-text">Action定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reward-function："><span class="nav-number">1.3.</span> <span class="nav-text">Reward function：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我的想法："><span class="nav-number">2.</span> <span class="nav-text">我的想法：</span></a></li></ol></div>
             
 
           </div>
@@ -830,7 +825,7 @@
   
     <script>
   window.livereOptions = {
-    refer: '2019/02/21/推荐系统：协同过滤第三部分（blog）/'
+    refer: '2019/03/15/阿里强化学习应用：引擎搜索能耗问题/'
   };
   (function(d, s) {
     var j, e = d.getElementsByTagName(s)[0];
