@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="龙渊">
 <meta property="og:description" content="常用检测方法设计完了系统并不代表就可以高枕无忧了，在系统上线后必须关注一定的指标，仔细地维护系统健康度。常用的推荐系统检测方法：  业务规则扫描 离线模拟测试 在线对比测试 用户访谈  业务规则扫描：运行单元测试，对推荐系统统一扫描业务规则。分为软硬两种，软扫描指在统计中触发少于一定概率，而硬就是一旦触发就是bug。其次，数学中的潜在规则也不能违反。（除以0，浮点精确度，连续小数相乘得0） 离线模">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-19T08:28:01.946Z">
+<meta property="og:updated_time" content="2019-03-21T02:50:51.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="推荐系统：检测方法常用指标（blog总结）">
 <meta name="twitter:description" content="常用检测方法设计完了系统并不代表就可以高枕无忧了，在系统上线后必须关注一定的指标，仔细地维护系统健康度。常用的推荐系统检测方法：  业务规则扫描 离线模拟测试 在线对比测试 用户访谈  业务规则扫描：运行单元测试，对推荐系统统一扫描业务规则。分为软硬两种，软扫描指在统计中触发少于一定概率，而硬就是一旦触发就是bug。其次，数学中的潜在规则也不能违反。（除以0，浮点精确度，连续小数相乘得0） 离线模">
@@ -383,12 +383,24 @@
                 
               
 
-              <time title="创建时间：2019-03-19 15:41:09 / 修改时间：16:28:01" itemprop="dateCreated datePublished" datetime="2019-03-19T15:41:09+08:00">2019-03-19</time>
+              <time title="创建时间：2019-03-19 15:41:09" itemprop="dateCreated datePublished" datetime="2019-03-19T15:41:09+08:00">2019-03-19</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-21 10:50:51" itemprop="dateModified" datetime="2019-03-21T10:50:51+08:00">2019-03-21</time>
               
             
           </span>
@@ -472,14 +484,14 @@
 <li>失效率：对应的，如果推荐商品列表为空时对应的比例：</li>
 </ol>
 <blockquote>
-<p>$$LOST=N_{l&gt;C}/N$$</p>
+<p>$$LOST=N_{l=0}/N$$</p>
 </blockquote>
 <ol start="3">
 <li>新颖性：直接使用布隆过滤器等手段保证每次推荐为新的物品，但是通常情况下通过不同方面的粒度上进行讨论。</li>
 <li>物品更新率：总推荐列表不能万年不变，但具体指标应该根据应用场景计算出来。</li>
 </ol>
 <blockquote>
-<p>UPDATE = \delta N_{diff}/N_{last}</p>
+<p>$$UPDATE = \delta N_{diff}/N_{last}$$</p>
 </blockquote>
 <h3 id="还能好多久（健康度）："><a href="#还能好多久（健康度）：" class="headerlink" title="还能好多久（健康度）："></a>还能好多久（健康度）：</h3><ol>
 <li>个性化：最直接地取一天日志，计算用户推荐列表的平均相似度。</li>
